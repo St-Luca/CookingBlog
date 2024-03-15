@@ -1,0 +1,13 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
+
+WORKDIR /source
+EXPOSE 80
+COPY . .
+WORKDIR /source/CookingBlog/Yolwise.Backoffice
+RUN dotnet restore
+RUN dotnet publish -c Release -o out
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal 
+WORKDIR /app
+COPY --from=build /app ./
+ENTRYPOINT ["dotnet", "CookingBlog.dll"]

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace CookingBlog.Models.DbModels
+namespace CookingBlog.DataAccess
 {
     public class CookingContext : DbContext
     {
