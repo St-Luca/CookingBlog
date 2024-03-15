@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CookingBlog.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CookingBlog.DataAccess
 {
@@ -10,6 +11,7 @@ namespace CookingBlog.DataAccess
             Database.EnsureCreated();
         }
 
+        public DbSet<DbRecipe> Recipes { get; set; } = default!;
         /* public DbSet<Locality> Localities { get; set; } = default!;
          public DbSet<LocalityCost> LocalityCosts { get; set; } = default!;
          public DbSet<Organization> Organizations { get; set; } = default!;
@@ -17,5 +19,11 @@ namespace CookingBlog.DataAccess
          public DbSet<CaptureAct> Acts { get; set; } = default!;
          public DbSet<Contract> Contracts { get; set; } = default!;
          public DbSet<Application> Applications { get; set; } = default!;*/
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            DbRecipe o1 = new DbRecipe { Id = 1 };
+            modelBuilder.Entity<DbRecipe>().HasData(o1);
+        }
     }
 }
