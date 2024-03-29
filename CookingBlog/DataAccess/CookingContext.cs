@@ -24,6 +24,8 @@ namespace CookingBlog.DataAccess
         {
             DbRecipe o1 = new DbRecipe { Id = 1 };
             modelBuilder.Entity<DbRecipe>().HasData(o1);
+
+
         }
     }
 }
