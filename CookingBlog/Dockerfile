@@ -1,19 +1,20 @@
-# Use the official ASP.NET Core SDK image
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-
-# Set the working directory in the container
+﻿FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
 
-# Copy the project file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["CookingBlog.csproj", "./"]
+RUN dotnet restore "./CookingBlog.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "CookingBlog.csproj" -c Release -o /app/build
 
-# Copy the remaining files and build the application
-COPY . ./
-RUN dotnet publish -c Release -o out
+FROM build AS publish
+RUN dotnet publish "CookingBlog.csproj" -c Release -o /app/publish --no-restore
 
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+FROM base AS final
 WORKDIR /app
-COPY --from=build /app/out .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "CookingBlog.dll"]
