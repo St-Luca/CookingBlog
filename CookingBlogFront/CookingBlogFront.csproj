@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CookingBlog\CookingBlog.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="img\" />
+    <Folder Include="wwwroot\css\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\2ef53242f9488fceacf8d93363788099.png" />
   </ItemGroup>
 
 </Project>

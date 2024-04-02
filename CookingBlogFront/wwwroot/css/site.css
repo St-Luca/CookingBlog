@@ -2,6 +2,11 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /*background-image: url(https://s3-alpha-sig.figma.com/img/dbb0/0ce1/e64024daa212accf90886efd398471a1?Expires=1713139200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OjIbDdPqn1EO285ANhLvXXmGcuK9bP2Co7zmZu5AJjr1sr~ej7N-uvh7zGlJt9ZpLx1q30p3t0w9MZjECMGCzEnDxWKSMwV8KLmT6VNeGNAsQtOzajsTwno5PQED2zSuI5IFgyLoWjV3nkda560rQZZasdzEpMt5Pyka0isEzLmDjVA6lToXI1TWohcxd30PJJZLUJynZcaHSlRnDksLtFcYubA6NwGQ4f8DO5nwgjesqrC4ZUOnu1dhg07ffXfHeTlVW4-hPDHfkPY3ZFiPUsXkXBGbZKgRqWPb6zQ7KvnF9E5fHluxUCw2Z61nOOw3X~Q5EI679pJusQEe1UU7TQ__);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;*/
 }
 
 h1:focus {
