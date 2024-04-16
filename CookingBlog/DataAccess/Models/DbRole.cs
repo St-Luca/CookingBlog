@@ -7,5 +7,5 @@ public class DbRole
     public int UserId { get; set; }
     [ForeignKey("UserId")]
     public DbUser User { get; set; } = null!;
-    public int Role { get; set; }
+    public byte Role { get; set; }
 }

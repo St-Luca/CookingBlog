@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddHttpClient<IFoodApiService, FoodApiService>((serviceProvider, client) =>
 {
-    client.BaseAddress = new Uri("https://api.spoonacular.com");
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
 });
 
 var app = builder.Build();
