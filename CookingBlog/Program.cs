@@ -1,4 +1,7 @@
 using CookingBlog.DataAccess;
+using CookingBlog.Services.IntegratedServices;
+using CookingBlog.Services.IntegratedServices.Interfaces;
+using CookingBlog.Services.IntegratedServices.Responses;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +13,11 @@ builder.Services.AddDbContext<CookingContext>(options => options.UseNpgsql(confi
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHttpClient<IFoodApiService, FoodApiService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri("https://api.spoonacular.com");
+});
 
 var app = builder.Build();
 

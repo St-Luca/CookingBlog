@@ -1,4 +1,6 @@
 using CookingBlog.Models;
+using CookingBlog.Services.IntegratedServices.Interfaces;
+using CookingBlog.Services.IntegratedServices.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CookingBlog.Controllers
@@ -8,24 +10,28 @@ namespace CookingBlog.Controllers
     public class CatalogController : ControllerBase
     {
         private readonly ILogger<CatalogController> _logger;
+
+        private readonly IFoodApiService _apiService;
         //private readonly ICatalogService catalogService;
 
-        public CatalogController(ILogger<CatalogController> logger)//, ICatalogService catalogService)
+        public CatalogController(ILogger<CatalogController> logger, IFoodApiService apiService)//, ICatalogService catalogService)
         {
             _logger = logger;
-           // this.catalogService = catalogService;
+            _apiService = apiService;
+            // this.catalogService = catalogService;
         }
 
         [HttpGet]
-        public IEnumerable<Recipe> Get()
+        public async Task<FoodApiResponseCollection?> Get(int count)
         {
+            return await _apiService.GetRandomRecipesAsync(count);
             //catalogService.GetCatalog();
-            return Enumerable.Range(1, 5).Select(index => new Recipe
-            {
-                Id = Random.Shared.Next(1, 55),
-                Name = "Recipe" + Random.Shared.Next(1, 55)
-            })
-            .ToArray();
+            // return Enumerable.Range(1, 5).Select(index => new Recipe
+            // {
+            //     Id = Random.Shared.Next(1, 55),
+            //     Name = "Recipe" + Random.Shared.Next(1, 55)
+            // })
+            // .ToArray();
         }
     }
 }
