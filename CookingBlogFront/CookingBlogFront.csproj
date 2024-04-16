@@ -12,11 +12,6 @@
 
   <ItemGroup>
     <Folder Include="img\" />
-    <Folder Include="wwwroot\css\img\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\css\2ef53242f9488fceacf8d93363788099.png" />
   </ItemGroup>
 
 </Project>
