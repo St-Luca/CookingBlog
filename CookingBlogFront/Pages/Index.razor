@@ -1,3 +1,50 @@
 ﻿@page "/"
 
 <PageTitle>Index</PageTitle>
+<section id="menu">
+
+    <div id="ricepic">
+    </div>
+    <div id="naming"><p>Калейдоскоп</p> <p>рецептов</p></div>
+    <div id="searchinput" class="butcon">
+        <input type="text" id="search" name="name" placeholder="Поиск" />
+    </div>
+
+    <form id="categoryinput" class="butcon" action="category" target="_blank" data-title="Категории">
+        <button id="allrec" class="but"></button>
+    </form>
+
+
+    <form id="allrecinput" class="butcon" action="recsite.html" target="_blank" data-title="Все рецепты">
+        <button id="allrec" class="but"></button>
+    </form>
+
+    <input type="checkbox" id="dropmenu" class="check">
+    <div id="dropmenuinput"></div>
+
+    <div id="menudiv">
+        <div id="menubox"></div>
+        <div id="useric"></div>
+        <h1 id="username">Имя Пользователя</h1>
+
+        <form id="exitinput" class="butcon" action="page/new.html" target="_blank">
+            <button id="allrec" class="but"></button>
+        </form>
+
+
+        <form id="favoritesinput" class="butcon menubut" action="page/new.html" target="_blank">
+            <button id="allrec" class="but menubut">Избранное</button>
+        </form>
+        <form id="myrecinput" class="butcon menubut" action="page/new.html" target="_blank">
+            <button id="allrec" class="but menubut">Мои рецепты</button>
+        </form>
+        <form id="createinput" class="butcon menubut" action="page/new.html" target="_blank">
+            <button id="allrec" class="but menubut">Создать рецепт</button>
+        </form>
+
+    </div>
+
+
+
+
+</section>

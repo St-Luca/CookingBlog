@@ -1,0 +1,116 @@
+﻿@page "/first/{pageNum}"
+
+<PageTitle>First</PageTitle>
+
+<form id="backtomenu" class="butcon" action="/" target="_blank" data-title="Вернуться в главное меню">
+        <button id="allrec" class="butlist"></button>
+    </form>
+    <section id="recieptmenu">
+    @if (recipes != null)
+    {
+        <div class="foodblock">
+            <div class="firstpic"></div>
+            <div class="textblock">
+                <H1>@recipes["recipes"][0].title</H1>
+                <p>@((MarkupString)recipes["recipes"][0].instructions)</p>
+            </div>
+        </div>
+        <div class="foodblock">
+            <div class="secpic"></div>
+            <div class="sectextblock">
+                <H1>@recipes["recipes"][1].title</H1>
+                <p>@((MarkupString)recipes["recipes"][1].instructions)</p>
+            </div>
+        </div>
+        <div class="foodblock">
+            <div class="pic"></div>
+            <div class="textblock">
+                <H1>@recipes["recipes"][2].title</H1>
+                <p>@((MarkupString)recipes["recipes"][2].instructions)</p>
+            </div>
+        </div>
+        <H2> Страница @pageNum</H2>
+        <input type="checkbox" id="dropmenu" class="check" data-title="Фильтры">
+        <div id="dropmenuinput"></div>
+    }
+
+        <div id="menudiv">
+            <div id="allrecmenubox">
+                
+                <div id="selectthinginput">
+                    <div id="selectthingtext">
+                        <p>Выберите ингридиенты, зажав "CTRL"</p>
+                    </div>
+                    <select name="skills2" id="selectthing" multiple size="7">
+                        <option value="potato" class="thing">картофель</option>
+                        <option value="carrot"class="thing">морковь</option>
+                        <option value="ogurec"class="thing">Javascript</option>
+                        <option value="shtuki"class="thing">лук</option>
+                        <option value="temp1"class="thing">temp1</option>
+                        <option value="temp2"class="thing">temp2</option>
+                        <option value="temp3"class="thing">temp3</option>
+                        <option value="temp4"class="thing">temp4</option>
+                        <option value="temp5"class="thing">temp5</option>
+                        <option value="temp6"class="thing">temp6</option>
+                        <option value="temp7"class="thing">temp7</option>
+                        <option value="temp8"class="thing">temp8</option>
+                        <option value="temp9"class="thing">temp9</option>
+                        <option value="temp10"class="thing">temp10</option>
+                </select>
+                    </div>
+
+            </div>
+            <select name="Сортировать" id="sortselect">
+                <option value="AVTOMATICHESKISTOIT">Сортировка по алфавиту</option>
+                <option value="pop">Сортировка по популярности</option>
+                <option value="dat">Сортировка по дате добавления</option>    
+              </select>
+
+            <div id="allrecsearchinput" class="butcon">
+                <input type="text" id="allrecsearch" name="name" placeholder="Поиск"/>
+            </div>
+        </div>
+        
+        
+    
+    </section>
+    <form id="backlist" class="butcon" action="first/1" target="_blank" data-title="Категории">
+        <button id="allrec" class="butlist"></button>
+    </form>
+    <form id="nextlist" class="butcon" action="first/@(NextPage())" target="_blank" data-title="Категории">
+        <button id="allrec" class="butlist"></button>
+    </form>
+@code{
+    [Parameter]
+    public string pageNum { get; set; }
+
+    public string NextPage()
+    {
+        int newPage = int.Parse(pageNum) + 1;
+        return newPage.ToString();
+    }
+
+    public Dictionary<string, List<Recipe>> recipes;
+
+    public HttpClient httpClient = new HttpClient();
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipes = await httpClient.GetFromJsonAsync<Dictionary<string, List<Recipe>>>("http://host.docker.internal:8080/catalog?count=3");
+    }
+
+    public class Ingredient
+    {
+        public string name {get; set;}
+        public string unit { get; set; }
+        public double amount { get; set; }
+    }
+
+    public class Recipe
+    {
+        public string title { get; set; }
+        public string instructions { get; set; }
+        public List<Ingredient> extendedIngredients{ get; set; }
+    }
+    }
+    
