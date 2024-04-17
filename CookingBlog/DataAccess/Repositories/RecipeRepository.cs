@@ -2,7 +2,7 @@
 
 namespace CookingBlog.DataAccess.Repositories;
 
-public class CatalogRepository : ICatalogRepository
+public class RecipeRepository : IRecipeRepository
 {
 
 }

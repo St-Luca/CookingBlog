@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace CookingBlog.Controllers;
 
 [ApiController]
-[Route("catalog")]
-public class CatalogController : ControllerBase
+[Route("api/catalog")]
+public class RecipeController : ControllerBase
 {
-    private readonly ILogger<CatalogController> _logger;
+    private readonly ILogger<RecipeController> _logger;
 
     private readonly IFoodApiService _apiService;
     //private readonly ICatalogService catalogService;
 
-    public CatalogController(ILogger<CatalogController> logger, IFoodApiService apiService)//, ICatalogService catalogService)
+    public RecipeController(ILogger<RecipeController> logger, IFoodApiService apiService)//, ICatalogService catalogService)
     {
         _logger = logger;
         _apiService = apiService;

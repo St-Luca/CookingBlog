@@ -3,11 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace CookingBlog.Models.Requests;
 
-public class CreateUserRequest : IValidatableObject
+public class RegisterUserRequest : IValidatableObject
 {
     public string Name { get; set; } = null!;
-    public string? Picture { get; set; } 
     public string Email { get; set; } = null!;
+    public string Password { get; set; } = null!;
 
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {

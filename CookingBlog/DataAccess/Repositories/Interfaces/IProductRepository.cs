@@ -1,6 +1,5 @@
-﻿namespace CookingBlog.DataAccess.Repositories.Interfaces
+﻿namespace CookingBlog.DataAccess.Repositories.Interfaces;
+
+public interface IProductRepository
 {
-    public class IProductRepository
-    {
-    }
 }
