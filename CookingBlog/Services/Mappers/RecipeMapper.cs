@@ -25,7 +25,7 @@ public static class RecipeMapper
     {
         return source.Select(r => r.Map()).ToList();
     }
-
+    
     public static Recipe Map(this DbRecipe source)
     {
         return new Recipe

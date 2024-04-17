@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CookingBlog.DataAccess.Repositories;
 
+<<<<<<< HEAD:CookingBlog/DataAccess/Repositories/ProductRepository.cs
+public class ProductRepository : IProductRepository
+=======
 public class RecipeRepository : IRecipeRepository
 {
     private readonly CookingContext context;
@@ -20,7 +23,7 @@ public class RecipeRepository : IRecipeRepository
     }
 
     public List<DbRecipe> GetRecipesByUser(int userId)
-    {
+{
         return context.Recipes.Include(l => l.Products).Include(u => u.Categories).Include(u => u.Reviews).Where(o => o.UserId.Equals(userId)).ToList();
     }
 }

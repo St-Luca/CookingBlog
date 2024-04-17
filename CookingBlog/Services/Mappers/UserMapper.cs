@@ -55,9 +55,9 @@ public static class UserMapper
     }
 
     public static DbRole Map(this Role role, DbUser user)
-    {
+{
         return new DbRole
-        {
+    {
             UserId = user.Id,
             User = user,
             Role = (byte)role

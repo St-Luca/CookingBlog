@@ -10,7 +10,7 @@ namespace CookingBlog.Controllers;
 [ApiController]
 public class UserController : CookingControllerBase
 {
-    private readonly IUserService userService;   
+    private readonly IUserService userService;
 
     public UserController(IUserService userService)
     {
