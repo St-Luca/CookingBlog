@@ -1,6 +1,5 @@
 ﻿using CookingBlog.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Contracts;
 
 namespace CookingBlog.DataAccess
 {
