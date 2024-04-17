@@ -1,6 +1,6 @@
 ﻿namespace CookingBlog.Services.Mappers;
 
-public static class CatalogMapper
+public static class RecipeMapper
 {
     
 }
