@@ -1,6 +1,5 @@
-﻿namespace CookingBlog.Services
+﻿namespace CookingBlog.Services;
+
+public class AuthService
 {
-    public class AuthService
-    {
-    }
 }

@@ -7,7 +7,8 @@ namespace CookingBlog.Controllers;
 
 [Route("api/auth")]
 [ApiController]
-public class AuthController : ControllerBase
+[AllowAnonymous]
+public class AuthController : CookingControllerBase
 {
     private readonly IPasswordResetService passwordResetService;
     private readonly IAuthService authService;

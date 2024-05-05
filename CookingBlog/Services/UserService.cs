@@ -1,5 +1,5 @@
 ﻿using CookingBlog.DataAccess.Repositories.Interfaces;
-using CookingBlog.Models;
+using CookingBlog.Models.Core;
 using CookingBlog.Models.Requests;
 using CookingBlog.Services.Interfaces;
 using System.Net;

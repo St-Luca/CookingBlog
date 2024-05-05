@@ -1,4 +1,4 @@
-﻿using CookingBlog.Models;
+﻿using CookingBlog.Models.Core;
 using CookingBlog.Models.Requests;
 
 namespace CookingBlog.Services.Interfaces;
