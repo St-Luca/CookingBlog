@@ -13,16 +13,9 @@ namespace CookingBlog.Services;
 
 public class TokenGenService : ITokenGenService
 {
-    private readonly string accessTokenSecret;
-    private readonly int accessTokenTTLMinutes;
-    private readonly int refreshTokenTTLDays;
-
-    public TokenGenService(ISettings settings)
-    {
-        accessTokenSecret = settings.GetValue("Auth:AccessTokenSecret");
-        accessTokenTTLMinutes = settings.GetValue<int>("Auth:AccessTokenTTLMinutes");
-        refreshTokenTTLDays = settings.GetValue<int>("Auth:RefreshTokenTTLDays");
-    }
+    private const string accessTokenSecret = "dP1uH9o4KemsWOHyvYwy0UPmquikIVnS";
+    private const int accessTokenTTLMinutes = 1440;
+    private const int refreshTokenTTLDays = 7;
 
     public AuthResponse Generate(GenerateTokenRequest request)
     {
@@ -42,7 +35,6 @@ public class TokenGenService : ITokenGenService
             {
                 new Claim("email", request.UserEmail),
                 new Claim("user_id", $"{request.UserId}"),
-                new Claim("account_id", $"{request.AccountId}"),
                 new Claim("is_moderator", $"{request.IsModerator}".ToLower()),
             }),
             Expires = DateTime.Now.AddMinutes(accessTokenTTLMinutes),

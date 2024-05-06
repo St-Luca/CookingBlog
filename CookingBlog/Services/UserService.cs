@@ -94,13 +94,13 @@ public class UserService : IUserService
         return new User();
     }
 
-    public async Task ChangePassword(ChangePasswordRequest request)
+    public async Task ChangePassword(string email, ChangePasswordRequest request)
     {
-        var user = await GetUser(request.Email, request.OldPassword);
+        var user = await GetUser(email, request.OldPassword);
 
         if (user is null)
         {
-            throw new HttpRequestException($"user {request.Email} does not exist");
+            throw new HttpRequestException($"user with email {email} does not exist");
         }
 
         user.PasswordHash = passwordHashService.HashPassword(request.NewPassword);

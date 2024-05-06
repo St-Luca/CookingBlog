@@ -12,13 +12,14 @@ namespace CookingBlog.DataAccess
         }
 
         public DbSet<DbRecipe> Recipes { get; set; } = default!;
-         public DbSet<DbCategory> Categories { get; set; } = default!;
-         public DbSet<DbReview> Reviews { get; set; } = default!;
-         public DbSet<DbProduct> Products { get; set; } = default!;
-         public DbSet<DbRole> Roles { get; set; } = default!;
-         public DbSet<DbUser> Users { get; set; } = default!;
-         public DbSet<DbRecipeCategory> RecipeCategories { get; set; } = default!;
-         public DbSet<DbRecipeProduct> RecipeProducts { get; set; } = default!;
+        public DbSet<DbCategory> Categories { get; set; } = default!;
+        public DbSet<DbReview> Reviews { get; set; } = default!;
+        public DbSet<DbProduct> Products { get; set; } = default!;
+        public DbSet<DbRole> Roles { get; set; } = default!;
+        public DbSet<DbUser> Users { get; set; } = default!;
+        public DbSet<DbRecipeCategory> RecipeCategories { get; set; } = default!;
+        public DbSet<DbRecipeProduct> RecipeProducts { get; set; } = default!;
+        public DbSet<DbUserToken> UserTokens { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -67,6 +68,11 @@ namespace CookingBlog.DataAccess
                    .HasMany(p => p.Reviews)
                    .WithOne(d => d.Recipe)
                    .HasForeignKey(d => d.RecipeId);
+
+            modelBuilder.Entity<DbUser>()
+                .HasMany(p => p.Tokens)
+                .WithOne(d => d.User)
+                .HasForeignKey(d => d.UserId);
         }
     }
 }

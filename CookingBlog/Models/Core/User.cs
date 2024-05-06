@@ -12,4 +12,9 @@ public class User
     public List<Review> Reviews { get; set; } = new();
     public List<Recipe> Recipes { get; set; } = new();
     public List<Role> Roles { get; set; } = new();
+
+    public bool IsModerator()
+    {
+        return Roles.Any(x => x == Role.Moderator);
+    }
 }

@@ -12,5 +12,6 @@ public class DbUser
     public List<DbReview> Reviews { get; set; } = new();
     public List<DbRecipe> Recipes { get; set; } = new();
     public List<DbRole> Roles { get; set; } = new();
+    public List<DbUserToken> Tokens { get; set; } = new();
 
 }

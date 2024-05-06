@@ -8,5 +8,5 @@ public interface IUserService
     Task<User?> GetById(int id);
     Task<User?> GetByEmail(string email);
     Task<User?> GetUser(string email, string password);
-    Task ChangePassword(ChangePasswordRequest request);
+    Task ChangePassword(string email, ChangePasswordRequest request);
 }

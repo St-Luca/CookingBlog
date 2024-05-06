@@ -2,7 +2,6 @@
 
 public enum Role
 {
-    Admin,
-    Creator,
-    UsualUser
+    Moderator,
+    User
 }
