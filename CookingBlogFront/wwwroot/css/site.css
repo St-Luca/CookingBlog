@@ -323,6 +323,10 @@ body {
     top: 15vw;
 }
 
+#profileinput {
+    top: 19vw;
+}
+
 
 #dropmenu:checked ~ #menudiv {
     visibility: visible;
