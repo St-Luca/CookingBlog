@@ -1,0 +1,204 @@
+﻿body {
+    height: 100%;
+    width: 100%;
+    background-image: url(Fon.png);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vw;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.recmenubody {
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    width: 98vw;
+    height: 46vw;
+    background-image: url(/wwwroot/css/img/Белый.jpg);
+    opacity: 50%;
+    border-radius: 50px;
+}
+
+h1 {
+    position: absolute;
+    font-weight: bolder;
+    font-size: 250%;
+    top: 1%;
+    left: 4vw;
+    right: 4vw;
+}
+
+hr, .hr2 {
+    border: none; /* Убираем границу */
+    background-color: rgb(0, 0, 0); /* Цвет линии */
+    color: rgb(0, 0, 0); /* Цвет линии */
+    height: 4px; /* Толщина линии */
+    border-radius: 50px;
+}
+
+.input_group, .input_group_opisanie, .input_group_produkt, .input_group_kolich, .input_group_izmerenie, .input_group_kal, .input_group_gir, .input_group_belk, .input_group_uglev, .input_group_sposob {
+    position: absolute;
+    top: 8vw;
+    left: 4vw;
+    width: 25%;
+}
+
+.input_group_opisanie {
+    top: 14vw;
+    left: 4vw;
+}
+
+.input_group_produkt {
+    top: 20vw;
+    left: 4vw;
+}
+
+.input_group_kolich {
+    top: 97%;
+    left: 0vw;
+    width: 25vw;
+}
+
+.input_group_izmerenie {
+    top: 97%;
+    left: 14vw;
+    width: 25vw;
+}
+
+.input_group_kal {
+    top: 30vw;
+    left: 4vw;
+}
+
+.input_group_gir {
+    top: 36vw;
+    left: 4vw;
+}
+
+.input_group_belk {
+    top: 42vw;
+    left: 4vw;
+}
+
+.input_group_uglev {
+    top: 48vw;
+    left: 4vw;
+}
+
+.input_group_sposob {
+    top: 8vw;
+    left: 55vw;
+}
+
+.input, select, .input_textarea, .kolich {
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    padding: 10px;
+    font: inherit;
+    color: #fff;
+    background-color: transparent;
+    outline: 2px solid #fff;
+    background-color: #ffffff;
+    outline-color: black;
+    width: 40vw;
+    height: 4vw;
+}
+
+.input_label {
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    transform: translate(30px, 25px);
+    transition: transform .25s;
+    font-weight: normal;
+    font-size: 150%;
+}
+
+.input:focus + .input_label,
+.input:valid + .input_label,
+.input_textarea:focus + .input_label,
+.input_textarea:valid + .input_label,
+.kolich:focus + .input_label,
+.kolich:valid + .input_label {
+    transform: translate(10px, -14px) scale(.8);
+    color: black;
+    padding-inline: 5px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 4px;
+}
+
+.input:is(:focus, :valid), .input_textarea:is(:focus, :valid), .kolich:is(:focus, :valid) {
+    outline-color: black;
+}
+
+INPUT[type="text"], option, select, textarea[type="text"] {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+    font-size: 120%;
+}
+
+select {
+    width: 55%;
+    font-weight: normal;
+    font-size: 150%;
+}
+
+.kolich {
+    width: 55%;
+    font-weight: normal;
+    font-size: 150%;
+}
+
+.input_textarea {
+    height: 32vw;
+}
+
+.button {
+    position: absolute;
+    top: 42vw;
+    left: 55vw;
+}
+
+.fotobut, .savebut {
+    background: radial-gradient(rgb(48,56,69), rgb(28,33,39));
+    font-family: Arial, Helvetica, sans-serif;
+    background-repeat: no-repeat;
+    font-weight: normal;
+    font-size: 150%;
+    border-radius: 50px;
+    border-color: rgb(48,56,69);
+    border-style: inset;
+    color: aliceblue;
+    width: 20vw;
+    height: 4vw;
+}
+
+img {
+    position: absolute;
+    top: 1vw;
+    left: 15vw;
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(5px 5px 5px black);
+}
+
+.nazad {
+    position: absolute;
+    top: 3%;
+    left: 96%;
+    transform: rotate(45deg);
+    width: 2%;
+    height: 4%;
+    filter: drop-shadow(5px 5px 5px black);
+}
+
+.hr2 {
+    position: absolute;
+    top: 16%;
+    left: 50%;
+    width: 4px;
+    height: 79%;
+}
