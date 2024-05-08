@@ -2,7 +2,7 @@
 
 namespace CookingBlog.Services;
 
-public class CatalogService : ICatalogService
+public class RecipeService : IRecipeService
 {
 
 }
