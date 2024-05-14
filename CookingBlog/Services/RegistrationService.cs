@@ -5,6 +5,9 @@ using CookingBlog.Models;
 using CookingBlog.Services.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.Net.Mail;
+using CookingBlog.Infrastructure;
+using System.Security.Principal;
+using CookingBlog.Services.Mappers;
 
 namespace CookingBlog.Services;
 
@@ -26,18 +29,16 @@ public class RegistrationService : IRegistrationService
 
     public async Task<RegisterUserResult> RegisterUser(int userId, RegisterUserRequest registerUserRequest)
     {
-        return await RegisterUserImpl(managerId, registerUserRequest);
+        return await RegisterUserImpl(userId, registerUserRequest);
     }
 
     private async Task<RegisterUserResult> RegisterUserImpl(int userId, RegisterUserRequest registerUserRequest)
     {
         using var transaction = await userService.BeginTransaction();
 
-        var user = await userService.Add(new CreateUserRequest
-        {
-            Email = registerUserRequest.Email,
-            UserRole = Role.User,
-        }, transaction);
+        var user = registerUserRequest.Map(new List<Role> { Role.User});
+        await userService.Add(user.Map(), transaction);
+
 
         //if (!await emailProducer.Produce(new EmailMessage
         //{
@@ -61,11 +62,11 @@ public class RegistrationService : IRegistrationService
 
         try
         {
-            await userService.Update(user, transaction);
+            await userService.Update(user.Map(), transaction);
         }
         catch (Exception e)
         {
-            logger.Error(e);
+            logger.LogError(e.Message);
 
             return new RegisterUserResult
             {
@@ -89,24 +90,24 @@ public class RegistrationService : IRegistrationService
 
         if (user == null)
         {
-            throw new YolwiseHttpRequestException($"user {completeUserRequest.Email} doesn't exist");
+            throw new CookingHttpRequestException($"user {completeUserRequest.Email} doesn't exist");
         }
 
         try
         {
             if (!passwordHashService.Verify(completeUserRequest.Email, completeUserRequest.Token))
             {
-                throw new YolwiseHttpRequestException($"incorrect token when trying to complete registration of {completeUserRequest.Email}");
+                throw new CookingHttpRequestException($"incorrect token when trying to complete registration of {completeUserRequest.Email}");
             }
         }
         catch (Exception ex)
         {
-            throw new YolwiseHttpRequestException(ex, "invalid token");
+            throw new CookingHttpRequestException(ex, "invalid token");
         }
 
         if (user.Status != UserStatus.Pending)
         {
-            throw new YolwiseHttpRequestException($"user {completeUserRequest.Email} status is not pending");
+            throw new CookingHttpRequestException($"user {completeUserRequest.Email} status is not pending");
         }
 
         user.Status = UserStatus.Approved;
@@ -117,6 +118,6 @@ public class RegistrationService : IRegistrationService
 
     private string CompletePasswordUrl(User user)
     {
-        return $"{settings.GetValue("WorkplaceDomain")}/set-password?email={user.Email}&token={passwordHashService.HashPassword(user.Email)}";
+        return $"/set-password?email={user.Email}&token={passwordHashService.HashPassword(user.Email)}"; //todo: check url
     }
 }
