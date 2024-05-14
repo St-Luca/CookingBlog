@@ -6,6 +6,7 @@ body{
     background-size: 100vw 100vw;
     overflow: hidden;
 }
+
 #recmenubody{
     
     height: 120vw;
@@ -28,6 +29,32 @@ body{
     background-color: rgba(245, 245, 245, 0.5);
     border-radius: 2vw;
     
+}
+#errorpage{
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    height: 30%;
+    width: 30%;
+    background-color: rgba(245, 245, 245, 0.5);
+    border-radius: 2vw;
+    
+}
+#errorhead{
+    position: relative;
+    top: 5%;
+    left: 37%;
+}
+#errortext{
+    position: relative;
+    
+    padding: 5%;
+}
+#oopsy{
+    position: relative;
+    left: 30%;
+    height: 10vh;
+    width: 10vw;
 }
 #categorymenu{
     position: absolute;
@@ -558,3 +585,8 @@ body{
 /* #recieptmenu>#dropmenuinput{
     background-image: url(img/voronka.png);
 } */
+
+h2{
+    position: relative;
+    left: 43vw;
+}
