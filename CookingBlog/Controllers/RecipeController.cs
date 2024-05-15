@@ -7,7 +7,7 @@ namespace CookingBlog.Controllers;
 
 [ApiController]
 [Route("api/catalog")]
-public class RecipeController : ControllerBase
+public class RecipeController : CookingControllerBase
 {
     private readonly ILogger<RecipeController> _logger;
 
