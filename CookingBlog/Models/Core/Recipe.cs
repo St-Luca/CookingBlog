@@ -1,7 +1,7 @@
 using CookingBlog.DataAccess.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CookingBlog.Models;
+namespace CookingBlog.Models.Core;
 
 public class Recipe
 {

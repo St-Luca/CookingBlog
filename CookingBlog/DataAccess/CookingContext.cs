@@ -12,18 +12,22 @@ namespace CookingBlog.DataAccess
         }
 
         public DbSet<DbRecipe> Recipes { get; set; } = default!;
-         public DbSet<DbCategory> Categories { get; set; } = default!;
-         public DbSet<DbReview> Reviews { get; set; } = default!;
-         public DbSet<DbProduct> Products { get; set; } = default!;
-         public DbSet<DbRole> Roles { get; set; } = default!;
-         public DbSet<DbUser> Users { get; set; } = default!;
-         public DbSet<DbRecipeCategory> RecipeCategories { get; set; } = default!;
-         public DbSet<DbRecipeProduct> RecipeProducts { get; set; } = default!;
+        public DbSet<DbCategory> Categories { get; set; } = default!;
+        public DbSet<DbReview> Reviews { get; set; } = default!;
+        public DbSet<DbProduct> Products { get; set; } = default!;
+        public DbSet<DbRole> Roles { get; set; } = default!;
+        public DbSet<DbUser> Users { get; set; } = default!;
+        public DbSet<DbRecipeCategory> RecipeCategories { get; set; } = default!;
+        public DbSet<DbRecipeProduct> RecipeProducts { get; set; } = default!;
+        public DbSet<DbUserToken> UserTokens { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DbRecipeCategory>()
         .HasKey(sc => new { sc.RecipeId, sc.CategoryId });
+
+            modelBuilder.Entity<DbRole>().HasKey(r => new { r.UserId, r.Role });
+            modelBuilder.Entity<DbUserToken>().HasKey(r => new { r.UserId, r.RefreshToken });
 
             modelBuilder.Entity<DbRecipe>()
             .HasMany(lc => lc.Categories)
@@ -53,6 +57,8 @@ namespace CookingBlog.DataAccess
                    .WithOne(d => d.User)
                    .HasForeignKey(d => d.UserId);
 
+            modelBuilder.Entity<DbUser>().HasKey(u => u.Id);
+
             modelBuilder.Entity<DbUser>()
                    .HasMany(p => p.Recipes)
                    .WithOne(d => d.User)
@@ -67,6 +73,11 @@ namespace CookingBlog.DataAccess
                    .HasMany(p => p.Reviews)
                    .WithOne(d => d.Recipe)
                    .HasForeignKey(d => d.RecipeId);
+
+            modelBuilder.Entity<DbUser>()
+                .HasMany(p => p.Tokens)
+                .WithOne(d => d.User)
+                .HasForeignKey(d => d.UserId);
         }
     }
 }
