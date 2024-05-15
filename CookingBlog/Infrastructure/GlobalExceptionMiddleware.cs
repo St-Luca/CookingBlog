@@ -11,7 +11,7 @@ public class GlobalExceptionMiddleware
         _next = next;
     }
 
-    public async Task Invoke(HttpContext httpContext, ILogger logger)
+    public async Task Invoke(HttpContext httpContext, ILogger<GlobalExceptionMiddleware> logger)
     {
         try
         {

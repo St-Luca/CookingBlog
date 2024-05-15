@@ -1,9 +1,7 @@
 ﻿using CookingBlog.DataAccess.Models;
 using CookingBlog.DataAccess.Repositories.Interfaces;
-using CookingBlog.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using System.Data;
 
 namespace CookingBlog.DataAccess.Repositories;
 
@@ -36,21 +34,25 @@ public class UserRepository : IUserRepository
 
     public async Task Update(DbUser user)
     {
+        context.Entry(user).State = EntityState.Modified;
+        await context.SaveChangesAsync();
+    }
+
+    public async Task Add(DbUser user, IDbContextTransaction cookingTransaction)
+    {
+        context.Database.UseTransaction(cookingTransaction.GetDbTransaction());
+        await context.Users.AddAsync(user);
+        context.SaveChanges();
+    }
+
+    public async Task Update(DbUser user, IDbContextTransaction cookingTransaction)
+    {
+        context.Database.UseTransaction(cookingTransaction.GetDbTransaction());
         context.Users.Update(user);
         context.SaveChanges();
     }
 
-    public Task Add(DbUser user, IDbContextTransaction cookingTransaction)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Update(DbUser user, IDbContextTransaction cookingTransaction)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<IDbContextTransaction> BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.Unspecified)
+    public async Task<IDbContextTransaction> BeginTransaction(System.Data.IsolationLevel isolationLevel = System.Data.IsolationLevel.Unspecified)
     {
         return context.Database.BeginTransaction(isolationLevel);
     }

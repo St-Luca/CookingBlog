@@ -1,4 +1,6 @@
 ﻿using CookingBlog.Models.Requests;
+using CookingBlog.Models.Responses;
+using CookingBlog.Services;
 using CookingBlog.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +10,7 @@ namespace CookingBlog.Controllers;
 [ApiController]
 public class UserController : CookingControllerBase
 {
-    private readonly IUserService userService;
+    private readonly IUserService userService;   
 
     public UserController(IUserService userService)
     {

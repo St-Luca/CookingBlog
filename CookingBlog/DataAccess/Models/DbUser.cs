@@ -6,7 +6,7 @@ public class DbUser
 {
     public int Id { get; set; }
     public string Name { get; set; } = null!;
-    public string Picture { get; set; } = null!;
+    public string Picture { get; set; } = string.Empty;
     public UserStatus Status { get; set; }
     public DateTime CreatedDate { get; set; }
     public string PasswordHash { get; set; } = null!;

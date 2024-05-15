@@ -1,7 +1,11 @@
 using CookingBlog.DataAccess;
+using CookingBlog.DataAccess.Repositories.Interfaces;
+using CookingBlog.DataAccess.Repositories;
 using CookingBlog.Infrastructure;
+using CookingBlog.Services;
 using CookingBlog.Services.IntegratedServices;
 using CookingBlog.Services.IntegratedServices.Interfaces;
+using CookingBlog.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +18,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 var config = builder.Configuration;
 
-builder.Services.AddDbContext<CookingContext>(options => options.UseNpgsql(config["Postgres:ConnectionString"]));
+builder.Services.AddDbContext<CookingContext>(options => options.UseNpgsql(config["Postgres:ConnectionString"]), ServiceLifetime.Scoped);
+
+AddAllServices(builder.Services);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -95,7 +101,7 @@ app.Run();
 
 
 
- void AddBearerAuth(SwaggerGenOptions options)
+void AddBearerAuth(SwaggerGenOptions options)
 {
     options.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
     {
@@ -121,4 +127,25 @@ app.Run();
                 new List<string>()
             }
         });
+}
+
+void AddAllServices(IServiceCollection services)
+{
+    services
+        .AddLogging(loggingBuilder =>
+        {
+            loggingBuilder.AddConsole();
+        })
+
+        .AddTransient<IUserService, UserService>()
+            //.AddTransient<IUserRolesService, UserRolesService>()
+        .AddTransient<IRegistrationService, RegistrationService>()
+            //.AddSingleton<IUserRolesRepository, UserRolesRepository>()
+        .AddScoped<IUserRepository, UserRepository>()
+        .AddSingleton<IPasswordHashService, PasswordHashService>()
+        .AddTransient<IAuthService, AuthService>()
+        .AddTransient<IUserTokensService, UserTokensService>()
+        .AddScoped<IUserTokensRepository, UserTokensRepository>()
+        .AddSingleton<ITokenGenService, TokenGenService>()
+        .AddSingleton<IPasswordResetService, PasswordResetService>();
 }

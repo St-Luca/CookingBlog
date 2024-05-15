@@ -12,7 +12,7 @@ public class CookingJwt
         this.user = user;
     }
 
-    public Guid UserId => ClaimValue<Guid>("user_id");
+    public int UserId => ClaimValue<int>("user_id");
     public string Email => ClaimValue<string>(ClaimTypes.Email);
     public int AccountId => ClaimValue<int>("account_id");
     public bool IsModerator => ClaimValue<bool>("is_moderator");

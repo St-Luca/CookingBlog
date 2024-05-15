@@ -1,5 +1,7 @@
 ﻿using CookingBlog.Infrastructure;
 using CookingBlog.Models.Requests;
+using CookingBlog.Models.Responses;
+using CookingBlog.Services;
 using CookingBlog.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +15,13 @@ public class AuthController : CookingControllerBase
 {
     private readonly IPasswordResetService passwordResetService;
     private readonly IAuthService authService;
+    private readonly IRegistrationService registrationService;
 
-    public AuthController(IPasswordResetService passwordResetService, IAuthService authService)
+    public AuthController(IPasswordResetService passwordResetService, IAuthService authService, IRegistrationService registrationService)
     {
         this.authService = authService;
         this.passwordResetService = passwordResetService;
+        this.registrationService = registrationService;
     }
 
     [HttpPost]
@@ -80,6 +84,21 @@ public class AuthController : CookingControllerBase
     public async Task<ActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
     {
         await passwordResetService.ResetPassword(request);
+        return Ok();
+    }
+
+    [AllowAnonymous]
+    [HttpPost("register")]
+    public async Task<ActionResult<RegisterUserResult>> Register([FromBody] RegisterUserRequest createUserRequest)
+    {
+        return await registrationService.RegisterUser(1, createUserRequest);
+    }
+
+    [HttpPost("complete")]
+    public async Task<ActionResult> Complete([FromBody] CompleteUserRequest completeUserRequest)
+    {
+        await registrationService.Complete(completeUserRequest);
+
         return Ok();
     }
 }

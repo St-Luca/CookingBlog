@@ -26,6 +26,9 @@ namespace CookingBlog.DataAccess
             modelBuilder.Entity<DbRecipeCategory>()
         .HasKey(sc => new { sc.RecipeId, sc.CategoryId });
 
+            modelBuilder.Entity<DbRole>().HasKey(r => new { r.UserId, r.Role });
+            modelBuilder.Entity<DbUserToken>().HasKey(r => new { r.UserId, r.RefreshToken });
+
             modelBuilder.Entity<DbRecipe>()
             .HasMany(lc => lc.Categories)
             .WithOne(c => c.Recipe)
@@ -53,6 +56,8 @@ namespace CookingBlog.DataAccess
                    .HasMany(p => p.Reviews)
                    .WithOne(d => d.User)
                    .HasForeignKey(d => d.UserId);
+
+            modelBuilder.Entity<DbUser>().HasKey(u => u.Id);
 
             modelBuilder.Entity<DbUser>()
                    .HasMany(p => p.Recipes)

@@ -9,15 +9,19 @@ public static class UserMapper
 {
     public static DbUser Map(this User source)
     {
-        return new DbUser
+        var user = new DbUser
         {
             Id = source.Id,
+            Name = source.Name,
             Email = source.Email,
             PasswordHash = source.PasswordHash,
             Status = source.Status,
-            CreatedDate = source.CreatedDate,
-            Roles = source.Roles.Select(r => r.Map(source.Map())).ToList(),
+            CreatedDate = source.CreatedDate
         };
+
+        user.Roles = source.Roles.Select(r => r.Map(user)).ToList();
+
+        return user;
     }
 
     public static User Map(this DbUser source)
@@ -25,6 +29,7 @@ public static class UserMapper
         return new User
         {
             Id = source.Id,
+            Name = source.Name,
             Email = source.Email,
             PasswordHash = source.PasswordHash,
             Status = source.Status,
@@ -39,10 +44,11 @@ public static class UserMapper
         {
             //Id = userId,
             Roles = roles,
+            Name = request.Name,
             Email = request.Email.Trim(),
             PasswordHash = string.Empty,
             Status = UserStatus.Created,
-            CreatedDate = DateTime.Now
+            CreatedDate = DateTime.UtcNow,
         };
 
         return user.Map();

@@ -16,11 +16,11 @@ public class RegistrationService : IRegistrationService
     private readonly IUserService userService;
     private readonly IPasswordHashService passwordHashService;
 
-    private readonly ILogger logger;
+    private readonly ILogger<RegistrationService> logger;
 
     //private readonly IUserEmailProducer emailProducer; //todo: make email 
 
-    public RegistrationService(IUserService userService, IPasswordHashService passwordHashService, ILogger logger)
+    public RegistrationService(IUserService userService, IPasswordHashService passwordHashService, ILogger<RegistrationService> logger)
     {
         this.userService = userService;
         this.passwordHashService = passwordHashService;
@@ -93,17 +93,17 @@ public class RegistrationService : IRegistrationService
             throw new CookingHttpRequestException($"user {completeUserRequest.Email} doesn't exist");
         }
 
-        try
-        {
-            if (!passwordHashService.Verify(completeUserRequest.Email, completeUserRequest.Token))
-            {
-                throw new CookingHttpRequestException($"incorrect token when trying to complete registration of {completeUserRequest.Email}");
-            }
-        }
-        catch (Exception ex)
-        {
-            throw new CookingHttpRequestException(ex, "invalid token");
-        }
+        //try
+        //{
+        //    if (!passwordHashService.Verify(completeUserRequest.Email, completeUserRequest.Token))
+        //    {
+        //        throw new CookingHttpRequestException($"incorrect token when trying to complete registration of {completeUserRequest.Email}");
+        //    }
+        //}
+        //catch (Exception ex)
+        //{
+        //    throw new CookingHttpRequestException(ex, "invalid token");
+        //}
 
         if (user.Status != UserStatus.Pending)
         {
