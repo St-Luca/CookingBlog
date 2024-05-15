@@ -45,6 +45,19 @@ public class UserRepository : IUserRepository
         context.SaveChanges();
     }
 
+    public async Task Update(DbUser user)
+    {
+        context.Entry(user).State = EntityState.Modified;
+        await context.SaveChangesAsync();
+    }
+
+    public async Task Add(DbUser user, IDbContextTransaction cookingTransaction)
+    {
+        context.Database.UseTransaction(cookingTransaction.GetDbTransaction());
+        await context.Users.AddAsync(user);
+        context.SaveChanges();
+    }
+
     public async Task Update(DbUser user, IDbContextTransaction cookingTransaction)
     {
         context.Database.UseTransaction(cookingTransaction.GetDbTransaction());

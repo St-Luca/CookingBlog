@@ -1,6 +1,5 @@
 ﻿namespace CookingBlog.Services;
 
-    public class PasswordRestoreService
-    {
-    }
+public class PasswordRestoreService
+{
 }

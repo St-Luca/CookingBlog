@@ -108,7 +108,13 @@ public class RegistrationService : IRegistrationService
         }
 
         user.Status = UserStatus.Approved;
+        user.PasswordHash = passwordHashService.HashPassword(completeUserRequest.Password);
 
         await userService.Update(user);
+    }
+
+    private string CompletePasswordUrl(User user)
+    {
+        return $"/set-password?email={user.Email}&token={passwordHashService.HashPassword(user.Email)}"; //todo: check url
     }
 }
