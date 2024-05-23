@@ -14,7 +14,7 @@
     left: 1%;
     width: 97vw;
     height: 79vw;
-    background-image: url(/wwwroot/css/img/Белый.jpg)!important;
+    background-color: white !important;
     opacity: 50%;
     border-radius: 50px;
 }

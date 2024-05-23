@@ -1,5 +1,7 @@
 ﻿@page "/"
 
+@inject AuthenticationStateProvider _authenticationStateProvider
+
 <PageTitle>Index</PageTitle>
 <section id="menu">
 
@@ -24,10 +26,16 @@
 
     <div id="menudiv">
         <div id="menubox"></div>
+        <AuthorizeView>
+        <NotAuthorized>
+            <h1 id="username"><a href="/login">Вход</a></h1>
+        </NotAuthorized>
+        <Authorized>
+
         <div id="useric"></div>
         <h1 id="username">Имя Пользователя</h1>
 
-        <form id="exitinput" class="butcon" action="page/new.html">
+        <form id="exitinput" class="butcon" onclick="@OnLogout">
             <button id="allrec" class="but"></button>
         </form>
 
@@ -44,10 +52,21 @@
         <form id="profileinput" class="butcon menubut" action="profile">
             <button id="allrec" class="but menubut">Профиль</button>
         </form>
+        </Authorized>
 
+        </AuthorizeView>
     </div>
 
 
 
 
 </section>
+
+
+@code
+{
+    private async Task OnLogout()
+    {
+        await ((IdentutyAuthenticationStateProvider)_authenticationStateProvider).MarkLogouted();
+    }
+}
