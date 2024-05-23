@@ -1,72 +1,77 @@
 ﻿@page "/new"
 
 <PageTitle>New</PageTitle>
+<AuthorizeView>
+    <Authorized>
 
-<div class="recmenubody"></div>
-<head>
-    <h1>Создай свой рецепт<hr></h1>
-</head>
-<div class="input_group">
-    <input type="text" id="name" required class="input">
-    <label for="name" class="input_label">Название блюда</label>
-</div>
-<p></p>
-<div class="input_group_opisanie">
-    <textarea type="text" id="name" required class="input"></textarea>
-    <label for="name" class="input_label">Введите описание</label>
-</div>
-<p></p>
-<div class="input_group_produkt">
-    <input type="text" id="name" required class="input">
-    <label for="name" class="input_label">Необходимый продукт</label>
-    <p></p>
-    <div class="input_group_kolich">
-        <input type="text" id="name" required class="kolich">
-        <label for="name" class="input_label">Количество</label>
-    </div>
-    <div class="input_group_izmerenie">
-        <select>
-            <option>шт</option>
-            <option>л</option>
-            <option>мл</option>
-            <option>г</option>
-            <option>на глаз</option>
-            <option>столовых ложек</option>
-            <option>чайных ложек</option>
-            <option>стакан</option>
-            <option>по вкусу</option>
-        </select>
-        <img src="/css/img/icons8-plyus-30.png" alt="Добавить ингредиент" title="Добавить ингредиент">
-    </div>
-</div>
+        <div class="recmenubody"></div>
+        <head>
+            <h1>Создай свой рецепт<hr></h1>
+        </head>
+        <div class="input_group">
+            <input type="text" id="name" required class="input">
+            <label for="name" class="input_label">Название блюда</label>
+        </div>
+        <p></p>
+        <div class="input_group_opisanie">
+            <textarea type="text" id="name" required class="input"></textarea>
+            <label for="name" class="input_label">Введите описание</label>
+        </div>
+        <p></p>
+        <div class="input_group_produkt">
+            <input type="text" id="name" required class="input">
+            <label for="name" class="input_label">Необходимый продукт</label>
+            <p></p>
+            <div class="input_group_kolich">
+                <input type="text" id="name" required class="kolich">
+                <label for="name" class="input_label">Количество</label>
+            </div>
+            <div class="input_group_izmerenie">
+                <select>
+                    <option>шт</option>
+                    <option>л</option>
+                    <option>мл</option>
+                    <option>г</option>
+                    <option>на глаз</option>
+                    <option>столовых ложек</option>
+                    <option>чайных ложек</option>
+                    <option>стакан</option>
+                    <option>по вкусу</option>
+                </select>
+                <img src="/css/img/icons8-plyus-30.png" alt="Добавить ингредиент" title="Добавить ингредиент">
+            </div>
+        </div>
 
-<p></p>
-<div class="input_group_kal">
-    <input type="text" id="name" required class="input">
-    <label for="name" class="input_label">Калории</label>
-</div>
-<p></p>
-<div class="input_group_gir">
-    <input type="text" id="name" required class="input">
-    <label for="name" class="input_label">Жиры</label>
-</div>
-<p></p>
-<div class="input_group_belk">
-    <input type="text" id="name" required class="input">
-    <label for="name" class="input_label">Белки</label>
-</div>
-<p></p>
-<div class="input_group_uglev">
-    <input type="text" id="name" required class="input">
-    <label for="name" class="input_label">Углеводы</label>
-</div>
-<div class="input_group_sposob">
-    <textarea type="text" id="name" required class="input_textarea"></textarea>
-    <label for="name" class="input_label">Способ приготовления</label>
-</div>
-<div class="button">
-    <button class="fotobut" type="submit" value="Выберите фото">Выберите фото</button>
-    <button class="savebut" type="submit" value="Сохранить">Сохранить</button>
-</div>
-<div><img class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу"> </div>
-<hr class="hr2" width="1" size="700">
+        <p></p>
+        <div class="input_group_kal">
+            <input type="text" id="name" required class="input">
+            <label for="name" class="input_label">Калории</label>
+        </div>
+        <p></p>
+        <div class="input_group_gir">
+            <input type="text" id="name" required class="input">
+            <label for="name" class="input_label">Жиры</label>
+        </div>
+        <p></p>
+        <div class="input_group_belk">
+            <input type="text" id="name" required class="input">
+            <label for="name" class="input_label">Белки</label>
+        </div>
+        <p></p>
+        <div class="input_group_uglev">
+            <input type="text" id="name" required class="input">
+            <label for="name" class="input_label">Углеводы</label>
+        </div>
+        <div class="input_group_sposob">
+            <textarea type="text" id="name" required class="input_textarea"></textarea>
+            <label for="name" class="input_label">Способ приготовления</label>
+        </div>
+        <div class="button">
+            <button class="fotobut" type="submit" value="Выберите фото">Выберите фото</button>
+            <button class="savebut" type="submit" value="Сохранить">Сохранить</button>
+        </div>
+        <div><img class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу"> </div>
+        <hr class="hr2" width="1" size="700">
+    </Authorized>
+
+</AuthorizeView>

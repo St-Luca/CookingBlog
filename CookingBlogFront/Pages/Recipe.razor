@@ -72,7 +72,12 @@
         <input type="image" class="likekoment" src="/css/img/icons8-thumbs-up-48.png" alt="" title="Лайк">
     </div>
 </div>
-<div class="input_group">
-    <input type="text" id="name" required class="input">
-    <label for="name" class="input_label">Добавить комментарий</label>
-</div>
+<AuthorizeView>
+    <Authorized>
+
+    <div class="input_group">
+        <input type="text" id="name" required class="input">
+        <label for="name" class="input_label">Добавить комментарий</label>
+    </div>
+    </Authorized>
+</AuthorizeView>

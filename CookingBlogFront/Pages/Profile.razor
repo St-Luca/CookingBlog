@@ -1,61 +1,70 @@
 ﻿@page "/profile"
+@inject NavigationManager Nav
 
-<PageTitle>Profile</PageTitle>
+<AuthorizeView>
+    <Authorized>
 
-<div class="recmenubody"></div>
-<div class="blok">
-    <img class="avatar" alt="" src="/css/img/пингвины.jpg">
-    <div class="button"><button>Фото</button></div>
-    <pre class="reiting">5,6</pre><img class="img_reiting" src="/css/img/icons8-zvezda-48.png">
-    <div class="text">
-        <p>
-            Имя
-        </p>
-        <p>
-            Дата рождения
-        </p>
-        <p>
-            Майл
-        </p>
-        <p>
-            Дата регистрации
-        </p>
-        <p>
-            Роль
-        </p>
-    </div>
-    <div class="text_right">
-        <p class="right">
-            Антон Сергеевич
-        </p>
-        <p class="right">
-            03.08.2000
-        </p>
-        <p class="right">
-            as@mail.ru
-        </p>
-        <p class="right">
-            10.02.2024
-        </p>
-        <p class="right">
-            Пользователь
-        </p>
-    </div>
-</div>
-<hr width="1" size="700">
-<div><img class="polz" src="/css/img/icons8-polzovatel-100.png" alt="" title="Перейти на страницу пользователя"> </div>
-<div><img class="viti" src="/css/img/icons8-vykhod-96.png" alt="" title="Выход из аккаунта"> </div>
-<form action="/"><button class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу"> </button>></form>
-<div class="button_kategor">
-    <button class="izbr" type="submit" value="">Избранное</button>
-    <p></p>
-    <button class="rezepn" type="submit" value="">Мои рецепты</button>
-    <p></p>
-    <button class="cozdat" type="submit" value="">Создать рецепт</button>
-</div>
-<div class="text_polz">
-    <p class="right">
-        Антон Сергеевич
-    </p>
-</div>
+        <PageTitle>Profile</PageTitle>
 
+        <div class="recmenubody"></div>
+        <div class="blok">
+            <img class="avatar" alt="" src="/css/img/пингвины.jpg">
+            <div class="button"><button>Фото</button></div>
+            <pre class="reiting">5,6</pre><img class="img_reiting" src="/css/img/icons8-zvezda-48.png">
+            <div class="text">
+                <p>
+                    Имя
+                </p>
+                <p>
+                    Дата рождения
+                </p>
+                <p>
+                    Майл
+                </p>
+                <p>
+                    Дата регистрации
+                </p>
+                <p>
+                    Роль
+                </p>
+            </div>
+            <div class="text_right">
+                <p class="right">
+                    Антон Сергеевич
+                </p>
+                <p class="right">
+                    03.08.2000
+                </p>
+                <p class="right">
+                    as@mail.ru
+                </p>
+                <p class="right">
+                    10.02.2024
+                </p>
+                <p class="right">
+                    Пользователь
+                </p>
+            </div>
+        </div>
+        <hr width="1" size="700">
+        <div><img class="polz" src="/css/img/icons8-polzovatel-100.png" alt="" title="Перейти на страницу пользователя"> </div>
+        <div><img class="viti" src="/css/img/icons8-vykhod-96.png" alt="" title="Выход из аккаунта"> </div>
+        <form action="/"><button class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу"> </button>></form>
+        <div class="button_kategor">
+            <button class="izbr" type="submit" value="">Избранное</button>
+            <p></p>
+            <button class="rezepn" type="submit" value="">Мои рецепты</button>
+            <p></p>
+            <button class="cozdat" type="submit" value="">Создать рецепт</button>
+        </div>
+        <div class="text_polz">
+            <p class="right">
+                Антон Сергеевич
+            </p>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+
+@code
+{}

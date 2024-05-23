@@ -1,5 +1,7 @@
+using Blazored.LocalStorage;
 using CookingBlogFront.Data;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+
+
+builder.Services.AddAuthenticationCore();
+builder.Services.AddScoped<AuthenticationStateProvider, IdentutyAuthenticationStateProvider>();
+builder.Services.AddScoped<AuthorizeApi>();
+builder.Services.AddBlazoredLocalStorage();
 
 var app = builder.Build();
 
