@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
+using System.Linq.Dynamic.Core.Tokenizer;
 
 public class AuthorizeApi 
 {
@@ -22,5 +23,40 @@ public class AuthorizeApi
 		_stateProvider.MarkAsAuthenticated(token);
 
 		return true;
+	}
+
+
+	public async Task<bool> Register(string username, string password)
+	{
+		//try
+		//{
+		//	var tokenResponse = await _accountClient.RegisterAsync(new RegisterRequest
+		//	{
+		//		Login = username,
+		//		Password = password
+		//	});
+
+		//	if (tokenResponse.ResultCase == LoginResponse.ResultOneofCase.Login)
+		//	{
+		//		var token = tokenResponse.Login.Token;
+
+		//		await _localStorage.SetItemAsync("token", token);
+		//		_authenticationStateProvider.MarkUserAsAuthenticated(token);
+
+		//		return true;
+		//	}
+		//}
+		//catch (Exception e)
+		//{
+		//}
+
+		//return false;
+
+		var tokenRespons = "1231453";
+		_stateProvider.MarkAsAuthenticated(tokenRespons);
+
+		return true;
+
+
 	}
 }

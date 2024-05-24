@@ -7,17 +7,15 @@
 <div id="LoginPage">
 	<div id="contentlog">
 
-<RadzenLogin Login="@OnLogin">
+<RadzenLogin AllowResetPassword="false"
+			 Login="@OnLogin"
+			 Register="@OnRegister">
 </RadzenLogin>
 	</div>
 </div>
 
-@code {
-	#region Private Fields
-	private string _login;
-	private string _password;
-	#endregion
 
+@code {
 	private async Task OnLogin(LoginArgs arg)
 	{
 		var login = arg.Username;
@@ -28,4 +26,6 @@
 		if (success)
 			Nav.NavigateTo("/");
 	}
+
+	private void OnRegister() => Nav.NavigateTo("/register");
 }
