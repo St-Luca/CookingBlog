@@ -1,5 +1,7 @@
 ﻿@page "/new"
 
+@inject NavigationManager Nav
+
 <PageTitle>New</PageTitle>
 <AuthorizeView>
     <Authorized>
@@ -9,7 +11,7 @@
             <h1>Создай свой рецепт<hr></h1>
         </head>
         <div class="input_group">
-            <input type="text" id="name" required class="input">
+            <input type="text" id="name" required class="input" @bind-value="_name">
             <label for="name" class="input_label">Название блюда</label>
         </div>
         <p></p>
@@ -68,10 +70,31 @@
         </div>
         <div class="button">
             <button class="fotobut" type="submit" value="Выберите фото">Выберите фото</button>
-            <button class="savebut" type="submit" value="Сохранить">Сохранить</button>
+            <button class="savebut" type="submit" value="Сохранить" onclick="@SendRecipeAsync">Сохранить</button>
         </div>
-        <div><img class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу"> </div>
+        <div><img class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу" onclick="@OnIndex"> </div>
         <hr class="hr2" width="1" size="700">
     </Authorized>
 
 </AuthorizeView>
+
+@code
+{
+    private string _name;
+
+    private void OnIndex() => Nav.NavigateTo("/");
+
+    private async Task SendRecipeAsync()
+    {
+        if (string.IsNullOrEmpty(_name))
+            return;
+
+        // await _client.SendRecipe(new Recipe
+        //     {
+        //         Name = _name
+        //     });
+
+        _name = "";
+
+    }
+}

@@ -1,5 +1,9 @@
 ﻿@page "/first/{pageNum}"
 
+@using CookingBlogFront.Data;
+
+@inject RecipeService RecipeService;
+
 <PageTitle>First</PageTitle>
 
 <form id="backtomenu" class="butcon" action="/" target="_blank" data-title="Вернуться в главное меню">
@@ -99,27 +103,12 @@
         return newPage.ToString();
     }
 
-    public Dictionary<string, List<Recipe>> recipes;
+    private Dictionary<string, List<Recipe>> recipes;
 
-    public HttpClient httpClient = new HttpClient();
 
     protected override async Task OnInitializedAsync()
     {
-        recipes = await httpClient.GetFromJsonAsync<Dictionary<string, List<Recipe>>>("http://host.docker.internal:8080/api/catalog?count=3");
-    }
-
-    public class Ingredient
-    {
-        public string name {get; set;}
-        public string unit { get; set; }
-        public double amount { get; set; }
-    }
-
-    public class Recipe
-    {
-        public string title { get; set; }
-        public string instructions { get; set; }
-        public List<Ingredient> extendedIngredients{ get; set; }
+        recipes = await RecipeService.GetRecipe();
     }
     }
     
