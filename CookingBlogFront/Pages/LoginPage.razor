@@ -3,23 +3,47 @@
 @inject AuthorizeApi AuthorizeApi 
 @inject NavigationManager Nav
 
-<h3>LoginPage</h3>
-<div id="LoginPage">
-	<div id="contentlog">
+<section id="menu">
 
-<RadzenLogin AllowResetPassword="false"
-			 Login="@OnLogin"
-			 Register="@OnRegister">
-</RadzenLogin>
-	</div>
-</div>
+
+    <div id="ricepic">
+    </div>
+    <div id="entermenu">
+        <div id="uspic">
+        </div>
+        <h1 id="enterh">Вход</h1><a id="regref" href="register">Регистрация</a>
+        <input type="text" id="login" name="login" required minlength="4" maxlength="32" size="10" placeholder="логин" @bind-value="_password"/>
+        <input type="password" id="password" name="password" required minlength="4" maxlength="32" size="10" placeholder="пароль" @bind-value="_username" />
+        <input id="authbut" type="button" value="Авторизоваться" onclick="@OnLogin"/>
+    </div>
+    <div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
 
 
 @code {
-	private async Task OnLogin(LoginArgs arg)
+
+    private string _password;
+    private string _username;
+
+	private async Task OnLogin()
 	{
-		var login = arg.Username;
-		var password = arg.Password;
+		var login = _username;
+        var password = _password;
 
 		var success = await AuthorizeApi.Login(login, password);
 

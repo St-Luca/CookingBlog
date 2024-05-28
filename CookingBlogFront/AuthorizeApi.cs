@@ -26,7 +26,7 @@ public class AuthorizeApi
 	}
 
 
-	public async Task<bool> Register(string username, string password)
+	public async Task<bool> Register(string email, string username, string password)
 	{
 		//try
 		//{
