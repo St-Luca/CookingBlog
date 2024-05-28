@@ -7,16 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\LoginPage.razor.css" />
+    <None Remove="Pages\RegisterPage.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\LoginPage.razor.css" />
+    <Content Include="Pages\RegisterPage.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CookingBlog\CookingBlog.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="img\" />
-    <Folder Include="wwwroot\css\img\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\css\2ef53242f9488fceacf8d93363788099.png" />
+    <PackageReference Include="Blazor.Bootstrap" Version="2.2.0" />
+    <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.5" />
+    <PackageReference Include="Radzen.Blazor" Version="4.31.7" />
   </ItemGroup>
 
 </Project>

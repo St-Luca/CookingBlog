@@ -1,0 +1,109 @@
+﻿@page "/recipe"
+
+@using CookingBlogFront.Data;
+
+@inject NavigationManager Nav
+@inject RecipeService RecipeService
+
+@if (recipes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="recmenubody"></div>
+    <img class="avatar" alt="" src="/css/img/ZA-iCBT6WJ8.jpg">
+    <div>
+        <p class="nazvan">
+            @recipes["recipes"][0].title
+        </p>
+        <p class="kateg">
+            Категория: Второе
+        </p>
+        <p class="kal">
+            калорийность - 1375 ККАЛ
+        </p>
+        <p class="belk">
+            белки - 45 г
+        </p>
+        <p class="gir">
+            жиры - 88 г
+        </p>
+        <p class="uglev">
+            углеводы - 100 г
+        </p>
+        <p class="ingrend">
+            Ингредиенты
+        </p>
+        <p class="rezepn">
+            Рецепт приготовления
+        </p>
+    </div>
+    <div class="blok">
+        @((MarkupString)recipes["recipes"][0].instructions)
+    </div>
+    <div class="blok2">
+        @foreach (var ingredient in @recipes["recipes"][0].extendedIngredients)
+        {
+            <p class="ingr">(@ingredient.name) - (@ingredient.amount) (@ingredient.unit)</p>
+        }
+    </div>
+    <hr class="hr2" width="1" size="700">
+    <input type="image" class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу" onclick="@OnIndex">
+    <input type="image" class="like" src="/css/img/icons8-thumbs-up-48.png" alt="" title="Лайк">
+    <input type="image" class="dizlike" src="/css/img/icons8-thumbs-up-48.png" alt="" title="Дизлайк">
+    <input type="image" class="izbr" src="/css/img/icons8-zvezda-52.png" alt="" title="Избранное">
+    <div><img class="belimg" src="/css/img/icons8-yaytso-64.png" alt=""> </div>
+    <div><img class="girimg" src="/css/img/icons8-olivkovoe-maslo-64.png" alt=""> </div>
+    <div><img class="uglevimg" src="/css/img/icons8-ovsyanye-khlopya-50.png" alt=""> </div>
+    <p class="liketext">345</p>
+    <p class="dizliketext">12</p>
+    <p class="avtor">Автор: Ирина</p>
+
+    <hr class="hr1">
+    <p class="koment">
+        Напиши и ты свой комментарий
+    </p>
+    <div class="blok3">
+        <div class="polzovatel">
+            <img class="chel" src="/css/img/icons8-avatar-48.png" alt="">
+            <p class="name"> Антон Сергеевич</p>
+            <p class="data"> 10.02.2024</p>
+            <p class="textkoment">Рецепт супер, уже приготовил, семье понравилось.</p>
+            <input type="image" class="likekoment" src="/css/img/icons8-thumbs-up-48.png" alt="" title="Лайк">
+        </div>
+    </div>
+    <AuthorizeView>
+        <Authorized>
+
+        <div class="input_group">
+            <input type="text" id="name" required class="input" @bind-value="_comment" onkeydown="@Enter">
+            <label for="name" class="input_label">Добавить комментарий</label>
+        </div>
+
+        </Authorized>
+    </AuthorizeView>
+}
+
+@code
+{
+    private string _comment;
+
+    private void OnIndex() => Nav.NavigateTo("/");
+
+    public void Enter(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code =="NumpadEnter")
+        {
+            _comment = "";
+        }
+    }
+
+    private Dictionary<string, List<Recipe>> recipes;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipes = await RecipeService.GetRecipe();
+    }
+}

@@ -1,3 +1,73 @@
 ﻿@page "/"
 
+
+@inject AuthenticationStateProvider _authenticationStateProvider
+
 <PageTitle>Index</PageTitle>
+<section id="menu">
+
+    <div id="ricepic">
+    </div>
+    <div id="naming"><p>Калейдоскоп</p> <p>рецептов</p></div>
+    <div id="searchinput" class="butcon">
+        <input type="text" id="search" name="name" placeholder="Поиск" />
+    </div>
+
+    <form id="categoryinput" class="butcon" action="category" data-title="Категории">
+        <button id="allrec" class="but"></button>
+    </form>
+
+
+    <form id="allrecinput" class="butcon" action="/first/1" data-title="Все рецепты">
+        <button id="allrec" class="but"></button>
+    </form>
+
+    <input type="checkbox" id="dropmenu" class="check">
+    <div id="dropmenuinput"></div>
+
+    <div id="menudiv">
+        <div id="menubox"></div>
+        <AuthorizeView>
+        <NotAuthorized>
+            <h1 id="username"><a href="/login">Вход</a></h1>
+        </NotAuthorized>
+        <Authorized>
+
+        <div id="useric"></div>
+        <h1 id="username">Имя Пользователя</h1>
+
+        <form id="exitinput" class="butcon" onclick="@OnLogout">
+            <button id="allrec" class="but"></button>
+        </form>
+
+
+        <form id="favoritesinput" class="butcon menubut" action="page/new.html">
+            <button id="allrec" class="but menubut">Избранное</button>
+        </form>
+        <form id="myrecinput" class="butcon menubut" action="page/new.html">
+            <button id="allrec" class="but menubut">Мои рецепты</button>
+        </form>
+        <form id="createinput" class="butcon menubut" action="/new">
+            <button id="allrec" class="but menubut">Создать рецепт</button>
+        </form>
+        <form id="profileinput" class="butcon menubut" action="profile">
+            <button id="allrec" class="but menubut">Профиль</button>
+        </form>
+        </Authorized>
+
+        </AuthorizeView>
+    </div>
+
+
+
+
+</section>
+
+
+@code
+{
+    private async Task OnLogout()
+    {
+        await ((IdentutyAuthenticationStateProvider)_authenticationStateProvider).MarkLogouted();
+    }
+}
