@@ -3,10 +3,12 @@ using CookingBlogFront.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
+using Blazored.FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<RecipeService>();
@@ -16,7 +18,6 @@ builder.Services.AddAuthenticationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentutyAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthorizeApi>();
 builder.Services.AddBlazoredLocalStorage();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
