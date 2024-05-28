@@ -2,7 +2,7 @@ using CookingBlog.Services.IntegratedServices.Responses;
 
 namespace CookingBlog.Services.IntegratedServices.Interfaces;
 
-public interface IFoodApiService
+public interface IFoodApiTasteService
 {
-    Task<FoodApiResponseCollection?> GetRandomRecipesAsync(int count);
+    Task<FoodApiResponseTaste?> GetTasteByIdAsync(int id); 
 }
