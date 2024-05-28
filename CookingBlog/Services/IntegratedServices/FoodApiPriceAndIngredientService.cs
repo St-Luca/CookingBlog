@@ -15,15 +15,12 @@ public class FoodApiPriceAndIngredientService: IFoodApiPriceAndIngredientService
         var ingredients = ingredientsAndPrice.Ingredients;
         for (int i = 0; i < ingredients.Count; i++)
         {
-            var prevIngredientsImage = ingredients[i].Image;
-            ingredients[i].Image = $"https://img.spoonacular.com/ingredients_250x250/{prevIngredientsImage}";
-            double prevPrice = ingredients[i].Price;
-            ingredients[i].Price = prevPrice * 0.01 * 88.69;
+            ingredients[i].Image = $"https://img.spoonacular.com/ingredients_250x250/{ingredients[i].Image}";
+            ingredients[i].Price *= 0.01 * 88.69;
         }
-
-        double prevTotalSum = ingredientsAndPrice.TotalCost;
-        ingredientsAndPrice.TotalCost = prevTotalSum;
-        double prevTotalCostPerServing = ingredientsAndPrice.TotalCostPerServing;
+        
+        ingredientsAndPrice.TotalCost = ingredients.Sum(i => i.Price);
+        ingredientsAndPrice.TotalCostPerServing *= 0.01 * 88.69;
         return ingredientsAndPrice;
     }
 }
