@@ -1,67 +1,84 @@
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-	    <meta charset="utf-8">
-		<title>Страница пользователя</title>
-		<link rel="stylesheet" href="Аккаунт.css" type="text/css"/>
-	</head>
-	<body>
-        <div class="recmenubody"></div> 
-        <div class="blok">
-            <img class="avatar" alt="" src="пингвины.jpg">
-            <div class="button"><button>Фото</button></div>
-            <pre class="reiting">5,6</pre><img class="img_reiting" src="icons8-звезда-48.png">
-            <div class="text">
-                <p>
-                    Имя
-                </p>
-                <p>
-                    Дата рождения
-                </p>
-                <p>
-                    Майл
-                </p>
-                <p>
-                    Дата регистрации
-                </p>
-                <p>
-                    Роль
-                </p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница пользователя</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="Аккаунт.css">
+</head>
+<body>
+    <div class="recmenubody"></div>
+    <div class="blok">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <img class="avatar" alt="" src="пингвины.jpg">
+                <div class="button"><button>Фото</button></div>
+                <pre class="reiting">5,6</pre><img class="img_reiting" src="icons8-звезда-48.png">
             </div>
-            <div class="text_right">
-                <p class="right">
-                    Антон Сергеевич
-                </p>
-                <p class="right">
-                    03.08.2000
-                </p>
-                <p class="right">
-                    as@mail.ru
-                </p>
-                <p class="right">
-                    10.02.2024
-                </p>
-                <p class="right">
-                    Пользователь
-                </p>
+            <div class="col-md-6 col-sm-12">
+                <div class="container text-left">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="left">Имя</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="right">Антон Сергеевич</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="left">Дата рождения</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="right">03.08.2000</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="left">Майл</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="right">as@mail.ru</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="left">Дата регистрации</div>
+                        </div>            
+                        <div class="col-md-6 col-sm-12">
+                            <div class="right">10.02.2024</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="left">Роль</div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="right">Пользователь</div>
+                        </div> 
+                    </div>
+                </div>
             </div>
         </div>
-        <hr width="1" size="700">
-        <div><img class="polz" src="icons8-пользователь-100.png" alt="" title="Перейти на страницу пользователя"> </div>
-        <div><img class="viti" src="icons8-выход-96.png" alt="" title="Выход из аккаунта"> </div>
-        <div><img class="nazad" src="icons8-plyus-30.png" alt="" title="Закрыть страницу"> </div>
-        <div class="button_kategor">
-            <button class="izbr" type="submit" value="">Избранное</button>
-            <p></p>
-            <button class="rezepn" type="submit" value="">Мои рецепты</button>
-            <p></p> 
-            <button class="cozdat" type="submit" value="">Создать рецепт</button> 
+    </div>
+    <hr width="1" size="700">
+    <div class="row">
+        <div class="col-md-2 col-sm-12">
+            <img class="polz" src="icons8-пользователь-100.png" alt="" title="Перейти на страницу пользователя">
         </div>
-        <div class="text_polz">
-            <p class="right">
-                Антон Сергеевич
-            </p>
+        <div class="col-md-2 col-sm-12">
+            <img class="viti" src="icons8-выход-96.png" alt="" title="Выход из аккаунта">
         </div>
-         	
-	</body>
+        <div class="col-md-2 col-sm-12">
+            <img class="nazad" src="icons8-plyus-30.png" alt="" title="Закрыть страницу">
+        </div>
+    </div>
+    <div class="button_kategor">
+        <button class="izbr" type="submit" value="">Избранное</button>
+        <p></p>
+        <button class="rezepn" type="submit" value="">Мои рецепты</button>
+        <p></p> 
+        <button class="cozdat" type="submit" value="">Создать рецепт</button> 
+    </div>
+    <div class="text_polz">
+        <p class="right_name">
+            Антон Сергеевич
+        </p>
+    </div>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

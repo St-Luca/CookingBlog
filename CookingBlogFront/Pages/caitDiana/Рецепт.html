@@ -1,86 +1,125 @@
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-	    <meta charset="utf-8">
-		<title>Страница пользователя</title>
-		<link rel="stylesheet" href="Рецепт.css" type="text/css"/>
-	</head>
-	<body>
-        <div class="recmenubody"></div>
-        <img class="avatar" alt="" src="ZA-iCBT6WJ8.jpg">
-        <div>
-            <p class="nazvan">
-                Паста карбонара с беконом 
-            </p>
-            <p class="kateg">
-                Категория: Второе
-            </p>
-            <p class="kal">
-                калорийность - 1375 ККАЛ
-            </p>
-            <p class="belk">
-                белки - 45 г
-            </p>
-            <p class="gir">
-                жиры - 88 г
-            </p>
-            <p class="uglev">
-                углеводы - 100 г
-            </p>
-            <p class="ingrend">
-                Ингредиенты
-            </p>
-            <p class="rezepn">
-                Рецепт приготовления
-            </p>
-        </div>
-        <div class="blok">
-            Спагетти варить 7-10 минут в кипящей подсоленной воде и откинуть на дуршлаг.
-            В сковороде разогрейте оливковое масло, положите чеснок и слегка подрумяньте.
-            Ветчину/бекон мелко нарежьте, добавьте к чесноку и обжаривайте 5 минут. 
-            Сыр пармезан натрите на мелкой терке. Желтки взбить со сливками, немного подсолить.
-            Спагетти переложить в сотейник с чесноком и ветчиной/беконом.
-            Добавить взбитые желтки и тёртый сыр, перемешать. Держать на огне 3 минуты.
-        </div>
-        <div class="blok2">
-            <p class="ingr">Спагетти - 400 г</p>
-            <p class="ingr">Оливковое масло - 6 столовых ложек</p>
-            <p class="ingr">Чеснок - 2 зубчика</p>
-            <p class="ingr">Ветчина - 300 г</p>
-            <p class="ingr">Яичный желток - 4 штуки</p>
-            <p class="ingr">Тертый сыр пармезан - 100 г</p>
-            <p class="ingr">Сливки 10%-ные - 200 мл</p>
-            <p class="ingr">Соль - по вкусу</p>
-            <p class="ingr">Молотый черный перец - по вкусу</p>
-        </div>
-        <hr class="hr2" width="1" size="700">
-        <input type="image" class="nazad" src="icons8-plyus-30.png" alt="" title="Закрыть страницу">
-        <input type="image" class="like" src="icons8-thumbs-up-48.png" alt="" title="Лайк">
-        <input type="image" class="dizlike" src="icons8-thumbs-up-48.png" alt="" title="Дизлайк">
-        <input type="image" class="izbr" src="icons8-звезда-52.png" alt="" title="Избранное">
-        <div><img class="belimg" src="icons8-яйцо-64.png" alt=""> </div>
-        <div><img class="girimg" src="icons8-оливковое-масло-64.png" alt=""> </div>
-        <div><img class="uglevimg" src="icons8-овсяные-хлопья-50.png" alt=""> </div>
-        <p class="liketext">345</p>
-        <p class="dizliketext">12</p>
-        <p class="avtor">Автор: Ирина</p>
-
-        <hr class="hr1">
-        <p class="koment">
-            Напиши и ты свой комментарий 
-        </p>
-        <div class="blok3">
-            <div class="polzovatel">
-                <img class="chel" src="icons8-аватар-48.png" alt="">
-                <p class="name"> Антон Сергеевич</p>
-                <p class="data"> 10.02.2024</p>
-                <p class="textkoment">Рецепт супер, уже приготовил, семье понравилось.</p> 
-                <input type="image" class="likekoment" src="icons8-thumbs-up-48.png" alt="" title="Лайк">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница рецепта</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="Рецепт.css">
+</head>
+<body>
+    <div class="recmenubody"></div>
+    <img class="avatar" alt="" src="ZA-iCBT6WJ8.jpg">
+    <div class="container text-left">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="nazvan">
+                    Паста карбонара с беконом
+                </p>
+                <p class="kateg">
+                    Категория: Второе
+                </p>
+                <p class="kal">
+                    калорийность - 1375 ККАЛ
+                </p>
+                <p class="belk">
+                    белки - 45 г
+                </p>
+                <p class="gir">
+                    жиры - 88 г
+                </p>
+                <p class="uglev">
+                    углеводы - 100 г
+                </p>
             </div>
         </div>
-        <div class="input_group">
-            <input type="text" id="name" required class="input">
-            <label for="name" class="input_label">Добавить комментарий</label>   
+        <div class="row">
+            <div class="col-md-6">
+                <p class="ingrend">
+                    Ингредиенты
+                </p>
+                <p class="rezepn">
+                    Рецепт приготовления
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="blok">
+                    Спагетти варить 7-10 минут в кипящей подсоленной воде и откинуть на дуршлаг.
+                    В сковороде разогрейте оливковое масло, положите чеснок и слегка подрумяньте.
+                    Ветчину/бекон мелко нарежьте, добавьте к чесноку и обжаривайте 5 минут.
+                    Сыр пармезан натрите на мелкой терке. Желтки взбить со сливками, немного подсолить.
+                    Спагетти переложить в сотейник с чесноком и ветчиной/беконом.
+                    Добавить взбитые желтки и тёртый сыр, перемешать. Держать на огне 3 минуты.
+                </div>
+                <div class="blok2">
+                    <p class="ingr">Спагетти - 400 г</p>
+                    <p class="ingr">Оливковое масло - 6 столовых ложек</p>
+                    <p class="ingr">Чеснок - 2 зубчика</p>
+                    <p class="ingr">Ветчина - 300 г</p>
+                    <p class="ingr">Яичный желток - 4 штуки</p>
+                    <p class="ingr">Тертый сыр пармезан - 100 г</p>
+                    <p class="ingr">Сливки 10%-ные - 200 мл</p>
+                    <p class="ingr">Соль - по вкусу</p>
+                    <p class="ingr">Молотый черный перец - по вкусу</p>
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+    <hr class="hr2" width="1" size="700">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <input type="image" class="nazad" src="icons8-plyus-30.png" alt="" title="Закрыть страницу">
+        </div>
+        <div class="col-auto">
+            <input type="image" class="like" src="icons8-thumbs-up-48.png" alt="" title="Лайк">
+        </div>
+        <div class="col-auto">
+            <input type="image" class="dizlike" src="icons8-thumbs-up-48.png" alt="" title="Дизлайк">
+        </div>
+        <div class="col-auto">
+            <input type="image" class="izbr" src="icons8-звезда-52.png" alt="" title="Избранное">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div><img class="belimg" src="icons8-яйцо-64.png" alt=""></div>
+        </div>
+        <div class="col-auto">
+            <div><img class="girimg" src="icons8-оливковое-масло-64.png" alt=""></div>
+        </div>
+        <div class="col-auto">
+            <div><img class="uglevimg" src="icons8-овсяные-хлопья-50.png" alt=""></div>
+        </div>
+        <div class="col-auto">
+            <p class="liketext">345</p>
+        </div>
+        <div class="col-auto">
+            <p class="dizliketext">12</p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <p class="avtor">Автор: Ирина</p>
+        </div>
+    </div>
+
+    <hr class="hr1">
+    <p class="koment">
+        Напиши и ты свой комментарий
+    </p>
+    <div class="blok3">
+        <div class="polzovatel">
+            <img class="chel" src="icons8-аватар-48.png" alt="">
+            <p class="name"> Антон Сергеевич</p>
+            <p class="data"> 10.02.2024</p>
+            <p class="textkoment">Рецепт супер, уже приготовил, семье понравилось.</p>
+            <input type="image" class="likekoment" src="icons8-thumbs-up-48.png" alt="" title="Лайк">
+        </div>
+    </div>
+    <div class="input_group">
+        <input type="text" id="name" required class="input">
+        <label for="name" class="input_label">Добавить комментарий</label>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

@@ -11,8 +11,8 @@ body{
     position: absolute;
     top: 2%;
     left: 1%;
-    width: 98vw;
-    height: 46vw;    
+    width: 98%;
+    height: 96%;    
     background-image: url(Белый.jpg);
     opacity: 50%;
     border-radius: 50px;
@@ -34,46 +34,46 @@ hr, .hr2{
    }
 .input_group, .input_group_opisanie, .input_group_produkt, .input_group_kolich, .input_group_izmerenie, .input_group_kal, .input_group_gir, .input_group_belk, .input_group_uglev, .input_group_sposob{
     position: absolute;
-    top: 8vw;
+    top: 7vw;
     left: 4vw;
     width: 25%;
 }
 .input_group_opisanie{
-    top: 14vw;
+    top: 25%;
     left: 4vw;
 }
 .input_group_produkt{
-    top: 20vw;
+    top: 35%;
     left: 4vw;
 }
 .input_group_kolich{
-    top: 97%;
+    top: 94%;
     left: 0vw;
     width: 25vw;
 }
 .input_group_izmerenie{
-    top: 97%;
+    top: 94%;
     left: 14vw;
     width: 25vw;
 }
 .input_group_kal{
-    top: 30vw;
+    top: 55%;
     left: 4vw;
 }
 .input_group_gir{
-    top: 36vw;
+    top: 65%;
     left: 4vw;
 }
 .input_group_belk{
-    top: 42vw;
+    top: 75%;
     left: 4vw;
 }
 .input_group_uglev{
-    top: 48vw;
+    top: 85%;
     left: 4vw;
 }
 .input_group_sposob{
-    top: 8vw;
+    top: 7vw;
     left: 55vw;
 }
 .input, select, .input_textarea, .kolich{
@@ -137,7 +137,7 @@ select{
 }
 .button{
     position: absolute;
-    top: 42vw;
+    top: 86%;
     left: 55vw;
 }
 .fotobut, .savebut{

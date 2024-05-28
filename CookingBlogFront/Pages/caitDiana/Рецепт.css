@@ -11,8 +11,8 @@ body{
     position: absolute;
     top: 2%;
     left: 1%;
-    width: 97vw;
-    height: 79vw;    
+    width: 98%;
+    height: 168%;    
     background-image: url(Белый.jpg);
     opacity: 50%;
     border-radius: 50px;
@@ -21,12 +21,12 @@ body{
     position: absolute;
     font-weight: bolder;
     font-size: 250%; 
-    top: 1%;
-    left: 63%;
+    top: 2%;
+    left: 56%;
 }
 .koment{
-    top: 100%;
-    left: 61%;
+    top: 103%;
+    left: 56%;
 }
 .kateg, .kal, .belk, .gir, .uglev, .avtor{
     position: absolute;
@@ -58,11 +58,11 @@ body{
 .ingrend, .rezepn{
     position: absolute;
     font-size: 200%; 
-    top: 34%;
+    top: 37%;
     left: 59%;
 }
 .rezepn{
-    top: 40%;
+    top: 44%;
     left: 5%;
 }
 .blok, .blok2, .blok3{
@@ -74,7 +74,7 @@ body{
     top: 49%;
     left: 3%;
     width: 49%;
-    height: 39%;
+    height: 49%;
     font-size: 180%;
 }
 .blok2{
@@ -99,7 +99,7 @@ body{
     box-shadow: 20px 10px 80px 50px rgba(0, 0, 0, 0.47);
 }
 .ingr{
-    margin-bottom: -3%;
+    margin-bottom: -1%;
     text-align: center;
 }
 .hr2{
@@ -125,7 +125,7 @@ body{
 }
 .like, .dizlike, .izbr, .belimg, .girimg, .uglevimg{
     position: absolute;
-    top: 94%;
+    top: 92%;
     left: 60%;
     width: 2%;
     height: 4%;
@@ -139,15 +139,15 @@ body{
     left: 74%;
 }
 .belimg{
-    top: 21%;
+    top: 19%;
     left: 63%;
 }
 .girimg{
-    top: 26%;
+    top: 24%;
     left: 63%;
 }
 .uglevimg{
-    top: 31%;
+    top: 29%;
     left: 63%;
 }
 .liketext, .dizliketext{
@@ -187,7 +187,7 @@ body{
     left: 10%;
 }
 .data{
-    left: 33%;
+    left: 37%;
 }
 .textkoment{
     background: radial-gradient(rgb(48,56,69), rgb(28,33,39));
@@ -198,24 +198,24 @@ body{
     border-color: rgb(48,56,69);
     border-style: inset;
     color: aliceblue;
-    top: 12%;
+    top: 19%;
     left: 10%;
-    width: 90%;
-    height: 10%;
+    width: 100%;
+    height: 16%;
 }
 .likekoment{
     top: 17%;
-    left: 106%;
+    left: 115%;
 }
 .input_group{
     position: absolute;
-    top: 157%;
+    top: 153%;
     left: 4vw;
     width: 25%;
 }
 .input_label{
     position: absolute;
-    top: 0vw;
+    top: -1vw;
     left: 0vw;
     transform: translate(30px, 25px);
     transition: transform .25s;
