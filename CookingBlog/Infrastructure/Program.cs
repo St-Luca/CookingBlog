@@ -76,6 +76,15 @@ builder.Services.AddHttpClient<IFoodApiPriceAndIngredientService, FoodApiPriceAn
     client.BaseAddress = new Uri(config["FoodApi:Url"]);
 });
 
+builder.Services.AddHttpClient<IFoodApiTasteService, FoodApiTasteService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
+});
+
+builder.Services.AddHttpClient<IFoodApiEquipmentService, FoodApiEquipmentService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
