@@ -1,9 +1,9 @@
 namespace CookingBlog.Services.IntegratedServices.Responses;
 
-public class FoodApiResponseEquipment
+public class FoodApiResponsePriceIngredient
 {
-    public int Id { get; set; }
+    public FoodApiResponseAmount Amount { get; set; }
     public string Image { get; set; }
     public string Name { get; set; }
-    public FoodApiResponseTemperature Temperature { get; set; }
+    public double Price { get; set; }
 }

@@ -1,6 +1,6 @@
 namespace CookingBlog.Services.IntegratedServices.Responses;
 
-public class FoodApiResponseIngredientMeasureMetric
+public class FoodApiResponseIngredientUs
 {
     public double Amount { get; set; }	
     public string? UnitShort { get; set; }
