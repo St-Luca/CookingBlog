@@ -2,6 +2,6 @@ namespace CookingBlog.Services.IntegratedServices.Responses;
 
 public class FoodApiResponseAmount
 {
-    public FoodApiResponseIngredientMetric metric;
-    public FoodApiResponseIngredientUs us;
+    public FoodApiResponseIngredientMetric Metric { get; set; }
+    public FoodApiResponseIngredientUs Us { get; set; }
 }

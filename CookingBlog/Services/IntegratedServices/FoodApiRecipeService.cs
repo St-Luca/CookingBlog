@@ -6,11 +6,11 @@ using Newtonsoft.Json;
 
 namespace CookingBlog.Services.IntegratedServices;
 
-public class FoodApiService : IFoodApiService
+public class FoodApiRecipeService : IFoodApiRecipeService
 {
     private readonly HttpClient _httpClient;
 
-    public FoodApiService(HttpClient httpClient) => _httpClient = httpClient;
+    public FoodApiRecipeService(HttpClient httpClient) => _httpClient = httpClient;
 
     public async Task<FoodApiResponseCollection?> GetRandomRecipesAsync(int count)
     {
@@ -29,27 +29,6 @@ public class FoodApiService : IFoodApiService
                 element.Image = $"https://img.spoonacular.com/ingredients_250x250/{prevImageOfIngredient}";
             }
         }
-
         return recipes;
-    }
-
-    public List<FoodApiResponseIngredient?> GetListOfIngredients(FoodApiResponseCollection recipe)
-    {
-        var informationAboutRecipe = recipe?.Recipes;
-        List<FoodApiResponseIngredient> listOfIngredients = new List<FoodApiResponseIngredient>();
-
-        for (int i = 0; i < informationAboutRecipe?.Count; i++)
-        {
-            var ingredients = informationAboutRecipe[i].ExtendedIngredients;
-            for (int j = 1; j < ingredients.Count; j++)
-            {
-                ingredients[j].Price = informationAboutRecipe[i].PricePerServing * 0.01 * 91.36;
-                string prevImageOfIngredient = ingredients[j].Image;
-                ingredients[j].Image = $"https://img.spoonacular.com/ingredients_250x250/{prevImageOfIngredient}";
-                listOfIngredients?.Add(ingredients[i]);
-            }
-        }
-
-        return listOfIngredients;
     }
 }
