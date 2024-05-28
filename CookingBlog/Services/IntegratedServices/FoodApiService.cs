@@ -17,6 +17,7 @@ public class FoodApiService : IFoodApiService
         var recipes = await _httpClient
             .GetFromJsonAsync<FoodApiResponseCollection>($"recipes/random?apiKey=3747b5cf498f4d8c831a0830ffe8c39c&number={count}");
         var listOfRecipes = recipes?.Recipes;
+
         for (int i = 0; i < listOfRecipes?.Count; i++)
         {
             var prevPrice = listOfRecipes[i].PricePerServing; 
@@ -28,6 +29,7 @@ public class FoodApiService : IFoodApiService
                 element.Image = $"https://img.spoonacular.com/ingredients_250x250/{prevImageOfIngredient}";
             }
         }
+
         return recipes;
     }
 
@@ -35,6 +37,7 @@ public class FoodApiService : IFoodApiService
     {
         var informationAboutRecipe = recipe?.Recipes;
         List<FoodApiResponseIngredient> listOfIngredients = new List<FoodApiResponseIngredient>();
+
         for (int i = 0; i < informationAboutRecipe?.Count; i++)
         {
             var ingredients = informationAboutRecipe[i].ExtendedIngredients;
@@ -46,6 +49,7 @@ public class FoodApiService : IFoodApiService
                 listOfIngredients?.Add(ingredients[i]);
             }
         }
+
         return listOfIngredients;
     }
 }
