@@ -66,7 +66,12 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddHealthChecks();
 
-builder.Services.AddHttpClient<IFoodApiService, FoodApiService>((serviceProvider, client) =>
+builder.Services.AddHttpClient<IFoodApiRecipeService, FoodApiRecipeService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
+});
+
+builder.Services.AddHttpClient<IFoodApiPriceAndIngredientService, FoodApiPriceAndIngredientService>((serviceProvider, client) =>
 {
     client.BaseAddress = new Uri(config["FoodApi:Url"]);
 });
