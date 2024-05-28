@@ -24,7 +24,9 @@ namespace CookingBlog.Controllers
         [HttpGet]
         public async Task<FoodApiResponseCollection?> Get(int count)
         {
-            return await _apiService.GetRandomRecipesAsync(count);
+            var recipes = await _apiService.GetRandomRecipesAsync(count);
+            _apiService.GetListOfIngredients(recipes);
+            return recipes;
             //catalogService.GetCatalog();
             // return Enumerable.Range(1, 5).Select(index => new Recipe
             // {
