@@ -37,6 +37,7 @@ public class RegistrationService : IRegistrationService
         using var transaction = await userService.BeginTransaction();
 
         var user = registerUserRequest.Map(new List<Role> { Role.User});
+
         await userService.Add(user.Map(), transaction);
 
 
@@ -93,17 +94,17 @@ public class RegistrationService : IRegistrationService
             throw new CookingHttpRequestException($"user {completeUserRequest.Email} doesn't exist");
         }
 
-        //try
-        //{
-        //    if (!passwordHashService.Verify(completeUserRequest.Email, completeUserRequest.Token))
-        //    {
-        //        throw new CookingHttpRequestException($"incorrect token when trying to complete registration of {completeUserRequest.Email}");
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    throw new CookingHttpRequestException(ex, "invalid token");
-        //}
+        try
+        {
+            if (!passwordHashService.Verify(completeUserRequest.Email, completeUserRequest.Token))
+            {
+                throw new CookingHttpRequestException($"incorrect token when trying to complete registration of {completeUserRequest.Email}");
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new CookingHttpRequestException(ex, "invalid token");
+        }
 
         if (user.Status != UserStatus.Pending)
         {
