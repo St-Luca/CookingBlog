@@ -4,11 +4,13 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Blazored.FluentValidation;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using CookingBlogFront.Validator;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<RecipeService>();

@@ -1,19 +1,11 @@
-﻿body {
-    height: 100%;
-    width: 100%;
-    background-image: url(Fon.png);
-    background-repeat: no-repeat;
-    background-size: 100vw 100vw;
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-}
+﻿
 
 .recmenubody {
     position: absolute;
     top: 2%;
     left: 1%;
-    width: 98vw;
-    height: 46vw;
+    width: 98%;
+    height: 96%;
     background-color: white !important;
     opacity: 50%;
     border-radius: 50px;
@@ -49,31 +41,27 @@ img {
 
 .reiting {
     position: absolute;
-    top: 41%;
-    left: 85%;
+    top: 42%;
+    left: 81%;
     font-weight: bolder;
     font-size: 200%;
 }
 
-.text, .text_right {
+.container {
     position: absolute;
+    top: 60%;
     font-weight: bolder;
-    font-size: 200%;
-    width: 80%;
-    top: 52%;
-    left: 13%;
+    font-size: 150%;
+    left: 11%;
 }
 
-.text_right {
+.right {
     font-weight: normal;
-    font-size: 150%;
-    top: 54%;
-    left: 63%;
 }
 
 .button {
     position: absolute;
-    top: 45%;
+    top: 47%;
     left: 45%;
 }
 
@@ -86,18 +74,13 @@ button {
     background: none;
 }
 
-.right {
-    margin-bottom: 5%;
-}
-
 hr {
+    position: absolute;
     border: none; /* Убираем границу */
-    background-color: rgb(0, 0, 0); /* Цвет линии */
-    color: rgb(0, 0, 0); /* Цвет линии */
+    background-color: #000000; /* Цвет линии */
     width: 4px; /* Толщина линии */
     height: 93%;
     border-radius: 50px;
-    position: absolute;
     top: 3%;
     left: 75%;
 }
@@ -143,8 +126,9 @@ hr {
 
 .text_polz {
     position: absolute;
-    top: 3%;
-    left: 83%;
+    top: 5%;
+    left: 81%;
     font-weight: normal;
     font-size: 150%;
 }
+
