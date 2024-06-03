@@ -1,12 +1,12 @@
 ﻿@page "/first/{pageNum}"
-
+@layout CookingBlogFront.Shared.PagesLayout
 @using CookingBlogFront.Data;
 
 @inject RecipeService RecipeService;
 
 <PageTitle>First</PageTitle>
 
-<form id="backtomenu" class="butcon" action="/" target="_blank" data-title="Вернуться в главное меню">
+<form id="backtomenu" class="butcon" action="/" data-title="Вернуться в главное меню">
         <button id="allrec" class="butlist"></button>
     </form>
     <section id="recieptmenu">

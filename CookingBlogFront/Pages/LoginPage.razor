@@ -1,5 +1,5 @@
 ﻿@page "/login"
-
+@layout LoginLayout
 @inject AuthorizeApi AuthorizeApi 
 @inject NavigationManager Nav
 
@@ -40,16 +40,16 @@
     private string _password;
     private string _username;
 
-	private async Task OnLogin()
-	{
-		var login = _username;
+    private async Task OnLogin()
+    {
+        var login = _username;
         var password = _password;
 
-		var success = await AuthorizeApi.Login(login, password);
+        var success = await AuthorizeApi.Login(login, password);
 
-		if (success)
-			Nav.NavigateTo("/");
-	}
+        if (success)
+            Nav.NavigateTo("/", true);
+    }
 
 	private void OnRegister() => Nav.NavigateTo("/register");
 }

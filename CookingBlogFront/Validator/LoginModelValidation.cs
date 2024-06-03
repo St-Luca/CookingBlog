@@ -1,8 +1,10 @@
-﻿using FluentValidation;
+﻿using CookingBlogFront.Data;
+using Blazored.FluentValidation;
+using FluentValidation;
 
-namespace CookingBlogFront.Data
+namespace CookingBlogFront.Validator
 {
-    public class LoginModelValidation: AbstractValidator<LoginModel>
+    public class LoginModelValidation : AbstractValidator<LoginModel>
     {
         public LoginModelValidation()
         {

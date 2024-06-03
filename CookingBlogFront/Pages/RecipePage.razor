@@ -1,5 +1,5 @@
 ﻿@page "/recipe"
-
+@layout RecipeLayout
 @using CookingBlogFront.Data;
 
 @inject NavigationManager Nav
@@ -45,7 +45,7 @@ else
     <div class="blok2">
         @foreach (var ingredient in @recipes["recipes"][0].extendedIngredients)
         {
-            <p class="ingr">(@ingredient.name) - (@ingredient.amount) (@ingredient.unit)</p>
+            <p class="ingr">@ingredient.name - @ingredient.amount @ingredient.unit</p>
         }
     </div>
     <hr class="hr2" width="1" size="700">
