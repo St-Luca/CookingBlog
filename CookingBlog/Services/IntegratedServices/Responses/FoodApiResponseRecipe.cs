@@ -2,6 +2,7 @@ namespace CookingBlog.Services.IntegratedServices.Responses;
 
 public class FoodApiResponseRecipe
 {
+    public int Id { get; set; }
     public string Title { get; set; } = null!;
     public string Instructions { get; set; } = null!;
     public string Image { get; set; } = null!;
