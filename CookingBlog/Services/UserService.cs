@@ -1,7 +1,11 @@
 ﻿using CookingBlog.DataAccess.Repositories.Interfaces;
-using CookingBlog.Models;
+using CookingBlog.Infrastructure;
+using CookingBlog.Models.Core;
 using CookingBlog.Models.Requests;
 using CookingBlog.Services.Interfaces;
+using CookingBlog.Services.Mappers;
+using Microsoft.EntityFrameworkCore.Storage;
+using System.Data;
 using System.Net;
 
 namespace CookingBlog.Services;
@@ -19,28 +23,26 @@ public class UserService : IUserService
 
     public async Task<User?> GetById(int id)
     {
-        //var dbUser = userRepository.GetById(id);
+        var dbUser = userRepository.GetById(id);
 
-        //if (dbUser is null)
-        //{
-        //    return default;
-        //}
+        if (dbUser is null)
+        {
+            return default;
+        }
 
-        //return dbUser.Map();
-        return new User();
+        return dbUser.Map();
     }
 
     public async Task<User?> GetByEmail(string email)
     {
-        //var dbUser = userRepository.GetByEmail(email);
+        var dbUser = userRepository.GetByEmail(email);
 
-        //if (dbUser is null)
-        //{
-        //    return default;
-        //}
+        if (dbUser is null)
+        {
+            return default;
+        }
 
-        //return dbUser.Map();
-        return new User();
+        return dbUser.Map();
     }
 
     public async Task<User?> GetUser(string email, string password)
@@ -74,7 +76,7 @@ public class UserService : IUserService
             throw new HttpRequestException($"user {userRequest.Email} is already exists");
         }
 
-        //var dbUser = await userRepository.Add(userRequest.Map());
+        var dbUser = await userRepository.Add(userRequest.Map(new List<Role> { Role.User}));
 
         //var role = await userRolesService.Add(new Role
         //{
@@ -82,28 +84,39 @@ public class UserService : IUserService
         //    Role = userRequest.UserRole
         //});
 
-        //return dbUser.Map();
-        return new User();
+        return dbUser.Map();
     }
 
-    public async Task<User> Update(User user)
+    public async Task Add(User user, IDbContextTransaction transaction)
     {
-        //var dbUser = await userRepository.Update(user.Map());
-
-        //return dbUser.Map();
-        return new User();
+        await userRepository.Add(user.Map(), transaction);
     }
 
-    public async Task ChangePassword(ChangePasswordRequest request)
+    public async Task Update(User user)
     {
-        var user = await GetUser(request.Email, request.OldPassword);
+        await userRepository.Update(user.Map());
+    }
+
+    public async Task Update(User user, IDbContextTransaction transaction)
+    {
+        await userRepository.Update(user.Map(), transaction);
+    }
+
+    public async Task ChangePassword(string email, ChangePasswordRequest request)
+    {
+        var user = await GetUser(email, request.OldPassword);
 
         if (user is null)
         {
-            throw new HttpRequestException($"user {request.Email} does not exist");
+            throw new HttpRequestException($"user with email {email} does not exist");
         }
 
         user.PasswordHash = passwordHashService.HashPassword(request.NewPassword);
         await Update(user);
+    }
+
+    public async Task<IDbContextTransaction> BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.Unspecified)
+    {
+        return await userRepository.BeginTransaction(isolationLevel);
     }
 }
