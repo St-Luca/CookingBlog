@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
+using CookingBlog.Services.IntegratedServices.Responses;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,6 +83,26 @@ builder.Services.AddHttpClient<IFoodApiTasteService, FoodApiTasteService>((servi
 });
 
 builder.Services.AddHttpClient<IFoodApiEquipmentService, FoodApiEquipmentService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
+});
+
+builder.Services.AddHttpClient<IFoodApiIngredientService, FoodApiIngredientService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
+});
+
+builder.Services.AddHttpClient<IFoodApiNutritionService, FoodApiNutritionService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
+});
+
+builder.Services.AddHttpClient<IFoodApiAnalyzedRecipeInstructionsService, FoodApiAnalyzedRecipeInstructionsService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
+});
+
+builder.Services.AddHttpClient<IFoodApiSubstitutesService, FoodApiSubstitutesService>((serviceProvider, client) =>
 {
     client.BaseAddress = new Uri(config["FoodApi:Url"]);
 });
