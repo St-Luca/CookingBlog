@@ -111,6 +111,12 @@ builder.Services.AddHttpClient<IFoodApiSearchRecipesService, FoodApiSearchRecipe
 {
     client.BaseAddress = new Uri(config["FoodApi:Url"]);
 });
+
+builder.Services.AddHttpClient<IFoodApiSearchRecipesByIngredients, FoodApiSearchRecipesByIngredientsService>((serviceProvider, client) =>
+{
+    client.BaseAddress = new Uri(config["FoodApi:Url"]);
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

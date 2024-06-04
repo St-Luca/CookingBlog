@@ -9,15 +9,18 @@ public class FoodApiSearchRecipesByIngredientsService: IFoodApiSearchRecipesByIn
 
     public FoodApiSearchRecipesByIngredientsService(HttpClient httpClient) => _httpClient = httpClient;
     
-    public async Task<List<FoodApiSearchRecipesByIngredientsService>?> SearchRecipesByIngredients(string[] ingredients)
+    public async Task<List<FoodApiResponseSearchByIngredients>?> SearchRecipesByIngredients(string ingredients)
     {
-        var recipes = new List<FoodApiSearchRecipesByIngredientsService>();
-        for(var i = 0; i < ingredients.Length; i++)
+        string[] ingredientsArray = ingredients.Split(" ");
+        var recipes = new List<FoodApiResponseSearchByIngredients>();
+        for(var i = 1; i < ingredientsArray.Length; i++)
         {
-            /*recipes = await _httpClient
-                .GetFromJsonAsync List<FoodApiResponseSearchByIngredients>(
-                    $"");*/
+            ingredientsArray[i] = ",+" + ingredientsArray[i];
         }
+        string result = string.Join("", ingredientsArray);
+        recipes = await _httpClient
+            .GetFromJsonAsync <List<FoodApiResponseSearchByIngredients>?>(
+                $"https://api.spoonacular.com/recipes/findByIngredients?ingredients={result}&apiKey=6de32bcb4b014c519b63babb12c164e7&");
         return recipes;
     }
 }

@@ -4,5 +4,5 @@ namespace CookingBlog.Services.IntegratedServices.Interfaces;
 
 public interface IFoodApiSearchRecipesByIngredients
 {
-    public Task<List<FoodApiSearchRecipesByIngredientsService>?> SearchRecipesByIngredients(string[] ingredients);
+    public Task<List<FoodApiResponseSearchByIngredients>?> SearchRecipesByIngredients(string ingredients);
 }

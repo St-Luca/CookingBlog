@@ -5,11 +5,11 @@ namespace CookingBlog.Controllers;
 
 [Route("api/instructions")]
 [ApiController]
-public class AnalyzedRecipeInstructionsController: CookingControllerBase
+public class InstructionsController: CookingControllerBase
 {
     private readonly IFoodApiAnalyzedRecipeInstructionsService _apiIntstructionsService;
 
-    public AnalyzedRecipeInstructionsController(IFoodApiAnalyzedRecipeInstructionsService apiIntstructionsService) =>
+    public InstructionsController(IFoodApiAnalyzedRecipeInstructionsService apiIntstructionsService) =>
         _apiIntstructionsService = apiIntstructionsService;
     
     [HttpGet("{recipeId:int}")]
