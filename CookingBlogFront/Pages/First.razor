@@ -2,7 +2,7 @@
 @layout CookingBlogFront.Shared.PagesLayout
 @using CookingBlogFront.Data;
 
-@inject RecipeService RecipeService;
+@inject IRecipeService _recipeService;
 
 <PageTitle>First</PageTitle>
 
@@ -10,27 +10,27 @@
         <button id="allrec" class="butlist"></button>
     </form>
     <section id="recieptmenu">
-    @if (recipes != null)
+    @if (_recipeService.Recipes != null)
     {
         <div class="foodblock">
-            <div class="firstpic"></div>
+            <div class="firstpic" style="background-image: url(@_recipeService.Recipes["recipes"][0].image) !important;"></div>
             <div class="textblock">
-                <a href="/recipe"><H1>@recipes["recipes"][0].title</H1></a>
-                <p>@((MarkupString)recipes["recipes"][0].instructions)</p>
+                <a href="/recipe/1"><H1>@_recipeService.Recipes["recipes"][0].title</H1></a>
+                <p>@((MarkupString)_recipeService.Recipes["recipes"][0].instructions)</p>
             </div>
         </div>
         <div class="foodblock">
-            <div class="secpic"></div>
+            <div class="secpic" style="background-image: url(@_recipeService.Recipes["recipes"][1].image) !important;"></div>
             <div class="sectextblock">
-                <a href="/recipe"><H1>@recipes["recipes"][1].title</H1></a>
-                <p>@((MarkupString)recipes["recipes"][1].instructions)</p>
+                <a href="/recipe/2"><H1>@_recipeService.Recipes["recipes"][1].title</H1></a>
+                <p>@((MarkupString)_recipeService.Recipes["recipes"][1].instructions)</p>
             </div>
         </div>
         <div class="foodblock">
-            <div class="pic"></div>
+            <div class="pic" style="background-image: url(@_recipeService.Recipes["recipes"][2].image) !important;"></div>
             <div class="textblock">
-                <a href="/recipe"><H1>@recipes["recipes"][2].title</H1></a>
-                <p>@((MarkupString)recipes["recipes"][2].instructions)</p>
+                <a href="/recipe/3"><H1>@_recipeService.Recipes["recipes"][2].title</H1></a>
+                <p>@((MarkupString)_recipeService.Recipes["recipes"][2].instructions)</p>
             </div>
         </div>
         <H2> Страница @pageNum</H2>
@@ -103,12 +103,10 @@
         return newPage.ToString();
     }
 
-    private Dictionary<string, List<Recipe>> recipes;
-
 
     protected override async Task OnInitializedAsync()
     {
-        recipes = await RecipeService.GetRecipe();
+        await _recipeService.GetRecipe();
     }
     }
     

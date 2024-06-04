@@ -1,11 +1,11 @@
-﻿@page "/recipe"
+﻿@page "/recipe/{recipeId:int}"
 @layout RecipeLayout
 @using CookingBlogFront.Data;
 
 @inject NavigationManager Nav
-@inject RecipeService RecipeService
+@inject IRecipeService _recipeService
 
-@if (recipes == null)
+@if (_recipeService.Recipes == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -15,7 +15,7 @@ else
     <img class="avatar" alt="" src="/css/img/ZA-iCBT6WJ8.jpg">
     <div>
         <p class="nazvan">
-            @recipes["recipes"][0].title
+            @_recipeService.Recipes["recipes"][recipeId - 1].title
         </p>
         <p class="kateg">
             Категория: Второе
@@ -40,12 +40,12 @@ else
         </p>
     </div>
     <div class="blok">
-        @((MarkupString)recipes["recipes"][0].instructions)
+        @((MarkupString)_recipeService.Recipes["recipes"][recipeId - 1].instructions)
     </div>
     <div class="blok2">
-        @foreach (var ingredient in @recipes["recipes"][0].extendedIngredients)
+        @foreach (var ingredient in @_recipeService.Recipes["recipes"][recipeId - 1].extendedIngredients)
         {
-            <p class="ingr">@ingredient.name - @ingredient.amount @ingredient.unit</p>
+            <p class="ingr">@ingredient.name - @ingredient.measures.metric.amount @ingredient.measures.metric.unitShort</p>
         }
     </div>
     <hr class="hr2" width="1" size="700">
@@ -87,6 +87,8 @@ else
 
 @code
 {
+    [Parameter]
+    public int recipeId { get; set; }
     private string _comment;
 
     private void OnIndex() => Nav.NavigateTo("/");
@@ -97,13 +99,5 @@ else
         {
             _comment = "";
         }
-    }
-
-    private Dictionary<string, List<Recipe>> recipes;
-
-
-    protected override async Task OnInitializedAsync()
-    {
-        recipes = await RecipeService.GetRecipe();
     }
 }

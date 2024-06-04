@@ -13,13 +13,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<RecipeService>();
 
 
 builder.Services.AddAuthenticationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentutyAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthorizeApi>();
 builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddScoped<IRecipeService, RecipeService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
