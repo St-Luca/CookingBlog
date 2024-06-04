@@ -57,7 +57,7 @@ body{
 #enterh{
     position: absolute;
     top: 1vh;
-    left: 10vh;
+    left: 7.5vh;
 }
 #regref{
     position: absolute;
@@ -73,7 +73,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1vw;
     top: 3.5vh;
-    left: 25vh;
+    left: 27vh;
 }
 #authbut{
     position: absolute;
@@ -697,20 +697,28 @@ h2{
 }
 
 
-@media screen and (max-width : 1080px) {
-    #regref{
-        top: 7vh;
-        left: 10vh;
+@media screen and (max-width : 1487) {
+    #regref2{
+        left: 15vh;
     }
 }
 
 @media screen and (max-width : 1170px) {
+    #entermenu{
+        position: absolute;
+        top: 10%;
+        left: 70%;
+        height: 70%;
+        width: 15%;
+        background-color: rgba(245, 245, 245, 0.5);
+        border-radius: 2vw;
+    }
     #regref2{
         top: 7vh;
         left: 10%;
     }
     #enterh{
-        position: center;
+        position: absolute;
         top: 7vh;
         left: 10%;
     }
@@ -732,4 +740,23 @@ h2{
         top: 70%;
     }
 }
+
+@media screen and (max-width : 1080px) {
+    #regref{
+        top: 7vh;
+        left: 10vh;
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    #regref2, #enterh, #entermenu {
+        width: 80%;
+        left: 10%; 
+    }
+    #login, #password, #password2, #authbut2 {
+        width: 80%; 
+        left: 10%;
+    }
+}
+
 
