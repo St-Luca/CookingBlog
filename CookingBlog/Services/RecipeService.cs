@@ -14,9 +14,9 @@ namespace CookingBlog.Services;
 public class RecipeService : IRecipeService
 {
     private readonly IRecipeRepository recipeRepository;
-    private readonly IFoodApiService foodApiService;
+    private readonly IFoodApiRecipeService foodApiService;
 
-    public RecipeService(IRecipeRepository recipeRepository, IFoodApiService foodApiService)
+    public RecipeService(IRecipeRepository recipeRepository, IFoodApiRecipeService foodApiService)
     {
         this.recipeRepository = recipeRepository;
         this.foodApiService = foodApiService;

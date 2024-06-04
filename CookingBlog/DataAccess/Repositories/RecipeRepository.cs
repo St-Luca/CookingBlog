@@ -4,9 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CookingBlog.DataAccess.Repositories;
 
-<<<<<<< HEAD:CookingBlog/DataAccess/Repositories/ProductRepository.cs
-public class ProductRepository : IProductRepository
-=======
 public class RecipeRepository : IRecipeRepository
 {
     private readonly CookingContext context;
