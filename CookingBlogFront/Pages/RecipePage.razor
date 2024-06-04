@@ -12,7 +12,7 @@
 else
 {
     <div class="recmenubody"></div>
-    <img class="avatar" alt="" src="/css/img/ZA-iCBT6WJ8.jpg">
+    <img class="avatar" alt="" src="@_recipeService.Recipes["recipes"][recipeId - 1].image">
     <div>
         <p class="nazvan">
             @_recipeService.Recipes["recipes"][recipeId - 1].title
@@ -91,7 +91,7 @@ else
     public int recipeId { get; set; }
     private string _comment;
 
-    private void OnIndex() => Nav.NavigateTo("/");
+    private void OnIndex() => Nav.NavigateTo("/first/1", true);
 
     public void Enter(KeyboardEventArgs e)
     {

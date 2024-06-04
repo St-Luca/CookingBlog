@@ -7,7 +7,6 @@ body {
     overflow: auto;
 }
 
-
 #recmenubody {
     height: 120vw;
     width: 50vw;
@@ -169,20 +168,20 @@ body {
 }
 
     #categoryinput:hover::after {
-        content: attr(data-title); /* Âûâîäèì òåêñò */
-        position: absolute; /* Àáñîëþòíîå ïîçèöèîíèðîâàíèå */
+        content: attr(data-title); /* Ã‚Ã»Ã¢Ã®Ã¤Ã¨Ã¬ Ã²Ã¥ÃªÃ±Ã² */
+        position: absolute; /* Ã€Ã¡Ã±Ã®Ã«Ã¾Ã²Ã­Ã®Ã¥ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã®Ã­Ã¨Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ */
         left: 100%;
-        top: 30%; /* Ïîëîæåíèå ïîäñêàçêè */
-        z-index: 1; /* Îòîáðàæàåì ïîäñêàçêó ïîâåðõ äðóãèõ ýëåìåíòîâ */
+        top: 30%; /* ÃÃ®Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¥ Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ¨ */
+        z-index: 1; /* ÃŽÃ²Ã®Ã¡Ã°Ã Ã¦Ã Ã¥Ã¬ Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ³ Ã¯Ã®Ã¢Ã¥Ã°Ãµ Ã¤Ã°Ã³Ã£Ã¨Ãµ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢ */
         background: radial-gradient(rgb(48,56,69), rgb(28,33,39));
         background-repeat: no-repeat;
         border-radius: 2vw;
         border-color: rgb(48,56,69);
-        font-family: Arial, sans-serif; /* Ãàðíèòóðà øðèôòà */
-        font-size: 1vw; /* Ðàçìåð òåêñòà ïîäñêàçêè */
+        font-family: Arial, sans-serif; /* ÃƒÃ Ã°Ã­Ã¨Ã²Ã³Ã°Ã  Ã¸Ã°Ã¨Ã´Ã²Ã  */
+        font-size: 1vw; /* ÃÃ Ã§Ã¬Ã¥Ã° Ã²Ã¥ÃªÃ±Ã²Ã  Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ¨ */
         color: aliceblue;
-        padding: 5px 10px; /* Ïîëÿ */
-        border: 1px solid #333; /* Ïàðàìåòðû ðàìêè */
+        padding: 5px 10px; /* ÃÃ®Ã«Ã¿ */
+        border: 1px solid #333; /* ÃÃ Ã°Ã Ã¬Ã¥Ã²Ã°Ã» Ã°Ã Ã¬ÃªÃ¨ */
     }
 
 /* #allrecinput{
@@ -195,20 +194,20 @@ body {
 }
 
     #allrecinput:hover::after {
-        content: attr(data-title); /* Âûâîäèì òåêñò */
-        position: absolute; /* Àáñîëþòíîå ïîçèöèîíèðîâàíèå */
+        content: attr(data-title); /* Ã‚Ã»Ã¢Ã®Ã¤Ã¨Ã¬ Ã²Ã¥ÃªÃ±Ã² */
+        position: absolute; /* Ã€Ã¡Ã±Ã®Ã«Ã¾Ã²Ã­Ã®Ã¥ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã®Ã­Ã¨Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ */
         left: 100%;
-        top: 30%; /* Ïîëîæåíèå ïîäñêàçêè */
-        z-index: 1; /* Îòîáðàæàåì ïîäñêàçêó ïîâåðõ äðóãèõ ýëåìåíòîâ */
+        top: 30%; /* ÃÃ®Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¥ Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ¨ */
+        z-index: 1; /* ÃŽÃ²Ã®Ã¡Ã°Ã Ã¦Ã Ã¥Ã¬ Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ³ Ã¯Ã®Ã¢Ã¥Ã°Ãµ Ã¤Ã°Ã³Ã£Ã¨Ãµ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢ */
         background: radial-gradient(rgb(48,56,69), rgb(28,33,39));
         background-repeat: no-repeat;
         border-radius: 2vw;
         border-color: rgb(48,56,69);
-        font-family: Arial, sans-serif; /* Ãàðíèòóðà øðèôòà */
-        font-size: 1vw; /* Ðàçìåð òåêñòà ïîäñêàçêè */
+        font-family: Arial, sans-serif; /* ÃƒÃ Ã°Ã­Ã¨Ã²Ã³Ã°Ã  Ã¸Ã°Ã¨Ã´Ã²Ã  */
+        font-size: 1vw; /* ÃÃ Ã§Ã¬Ã¥Ã° Ã²Ã¥ÃªÃ±Ã²Ã  Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ¨ */
         color: aliceblue;
-        padding: 5px 10px; /* Ïîëÿ */
-        border: 1px solid #333; /* Ïàðàìåòðû ðàìêè */
+        padding: 5px 10px; /* ÃÃ®Ã«Ã¿ */
+        border: 1px solid #333; /* ÃÃ Ã°Ã Ã¬Ã¥Ã²Ã°Ã» Ã°Ã Ã¬ÃªÃ¨ */
     }
 
 
@@ -290,204 +289,6 @@ body {
     left: 68vw;
     z-index: 3;
     background-size: 5vw 5vw;
-}
-
-#useric {
-    background-image: url(img/icons8-polzovatel-100.png);
-    position: absolute;
-    top: 0.5vw;
-    right: 21.5vw;
-    height: 4.5vw;
-    width: 5vw;
-    border: none;
-    z-index: 3;
-    background-size: 5vw 5vw;
-}
-
-#username {
-    position: absolute;
-    top: 2vw;
-    right: 7.5vw;
-    z-index: 3;
-    font-size: larger;
-}
-
-.menubut {
-    height: 3vw;
-    width: 15vw;
-    background: radial-gradient(rgb(48,56,69), rgb(28,33,39));
-    background-repeat: no-repeat;
-    border-radius: 2vw;
-    border-color: rgb(48,56,69);
-    top: 7vw;
-    left: 74vw;
-    z-index: 3;
-    border-style: inset;
-    font-size: large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: aliceblue;
-}
-
-    .menubut:hover {
-        background: radial-gradient(rgb(65, 75, 90), rgb(28,33,39));
-    }
-
-    .menubut:active {
-        background: radial-gradient(rgb(85, 96, 112), rgb(28,33,39));
-    }
-
-#myrecinput {
-    top: 11vw;
-}
-
-#createinput {
-    top: 15vw;
-}
-
-
-#dropmenu:checked ~ #menudiv {
-    visibility: visible;
-}
-
-#dropmenu:checked ~ #naming {
-    visibility: hidden;
-}
-
-#dropmenu:checked ~ #dropmenuinput {
-    background-image: url(img/icons8-vykhod-96.png);
-}
-
-.categorymenubutt {
-    visibility: visible;
-    display: block;
-    margin-top: 1vw;
-    padding-left: 3.7vw;
-}
-
-
-#categorysearchinput {
-    display: block;
-    left: 5%;
-    top: 2%;
-    height: 2vw;
-    width: 1vw;
-    z-index: 3;
-    padding-bottom: 2vw;
-}
-
-#categorysearch {
-    z-index: 3;
-    display: block;
-    height: 2.5vw;
-    width: 14vw;
-    border-radius: 2vw;
-    padding-left: 3vw;
-    font-size: 1vw;
-}
-
-#backbut {
-    top: 1vw;
-    left: 21vw;
-    background-image: url(img/icons8-vykhod-96.png);
-}
-
-#selectthingtext {
-    font-size: 0.9vw;
-    z-index: 3;
-    position: absolute;
-    top: 4vw;
-    left: 1vw;
-    width: 23.8vw;
-    padding-bottom: 1vw;
-    background-color: rgba(245, 245, 245);
-    border-radius: 1vw;
-    border-color: #c2c2c2;
-    border-style: outset;
-    border-width: 0.15vw;
-}
-
-#selectthing {
-    z-index: 3;
-    position: absolute;
-    top: 6vw;
-    left: 1vw;
-    width: 24vw;
-    border-radius: 0 1vw;
-    transform: scaleX(-1);
-    font-size: 1vw;
-}
-
-.thing {
-    transform: scaleX(-1);
-}
-
-#sortselect {
-    position: absolute;
-    top: 17vw;
-    left: 1vw;
-    font-size: 1vw;
-    height: auto;
-    width: 24vw;
-}
-
-
-.foodblock {
-    width: 98%;
-    height: 30%;
-    background-color: rgba(245, 245, 245, 0.1);
-    border-radius: 1vw;
-    margin-left: 1vw;
-    margin-top: 2vw;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.firstpic {
-    position: relative;
-    top: 10%;
-    height: 25vw;
-    width: 25vw;
-    background-image: url(img/tray-with-variety-of-rice-and-kidney-beans.jpg);
-    background-repeat: no-repeat;
-    background-size: 60vw 40vw;
-    background-position: right top;
-    border-radius: 18vw;
-    box-shadow: 0px 0px 5vw black;
-}
-
-.secpic {
-    position: relative;
-    left: 65vw;
-    top: 10%;
-    height: 25vw;
-    width: 25vw;
-    background-image: url(img/tray-with-variety-of-rice-and-kidney-beans.jpg);
-    background-repeat: no-repeat;
-    background-size: 60vw 40vw;
-    background-position: right top;
-    border-radius: 18vw;
-    box-shadow: 0px 0px 5vw black;
-}
-
-.pic {
-    position: relative;
-    top: 10%;
-    height: 25vw;
-    width: 25vw;
-    background-image: url(img/soup.jpg);
-    background-repeat: no-repeat;
-    background-size: 10vw;
-    background-position: center;
-    border-radius: 18vw;
-    box-shadow: 0px 0px 5vw black;
-}
-
-.sectextblock {
-    position: relative;
-    top: -55%;
-    height: 25vw;
-    width: 60vw;
-    background-color: rgba(245, 245, 245, 0.5);
-    border-radius: 1vw;
 }
 
 .textblock {
@@ -594,20 +395,20 @@ div::-webkit-scrollbar-track {
 
     #backtomenu:hover::after {
         transform: rotate(180deg);
-        content: attr(data-title); /* Âûâîäèì òåêñò */
-        position: absolute; /* Àáñîëþòíîå ïîçèöèîíèðîâàíèå */
+        content: attr(data-title); /* Ã‚Ã»Ã¢Ã®Ã¤Ã¨Ã¬ Ã²Ã¥ÃªÃ±Ã² */
+        position: absolute; /* Ã€Ã¡Ã±Ã®Ã«Ã¾Ã²Ã­Ã®Ã¥ Ã¯Ã®Ã§Ã¨Ã¶Ã¨Ã®Ã­Ã¨Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ */
         left: -2vw;
-        top: 68%; /* Ïîëîæåíèå ïîäñêàçêè */
-        z-index: 1; /* Îòîáðàæàåì ïîäñêàçêó ïîâåðõ äðóãèõ ýëåìåíòîâ */
+        top: 68%; /* ÃÃ®Ã«Ã®Ã¦Ã¥Ã­Ã¨Ã¥ Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ¨ */
+        z-index: 1; /* ÃŽÃ²Ã®Ã¡Ã°Ã Ã¦Ã Ã¥Ã¬ Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ³ Ã¯Ã®Ã¢Ã¥Ã°Ãµ Ã¤Ã°Ã³Ã£Ã¨Ãµ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã®Ã¢ */
         background: radial-gradient(rgb(48,56,69), rgb(28,33,39));
         background-repeat: no-repeat;
         border-radius: 2vw;
         border-color: rgb(48,56,69);
-        font-family: Arial, sans-serif; /* Ãàðíèòóðà øðèôòà */
-        font-size: 1vw; /* Ðàçìåð òåêñòà ïîäñêàçêè */
+        font-family: Arial, sans-serif; /* ÃƒÃ Ã°Ã­Ã¨Ã²Ã³Ã°Ã  Ã¸Ã°Ã¨Ã´Ã²Ã  */
+        font-size: 1vw; /* ÃÃ Ã§Ã¬Ã¥Ã° Ã²Ã¥ÃªÃ±Ã²Ã  Ã¯Ã®Ã¤Ã±ÃªÃ Ã§ÃªÃ¨ */
         color: aliceblue;
-        padding: 5px 10px; /* Ïîëÿ */
-        border: 1px solid #333; /* Ïàðàìåòðû ðàìêè */
+        padding: 5px 10px; /* ÃÃ®Ã«Ã¿ */
+        border: 1px solid #333; /* ÃÃ Ã°Ã Ã¬Ã¥Ã²Ã°Ã» Ã°Ã Ã¬ÃªÃ¨ */
     }
 /* #recieptmenu>#dropmenuinput{
     background-image: url(img/voronka.png);

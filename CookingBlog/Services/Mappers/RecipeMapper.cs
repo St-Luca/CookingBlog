@@ -7,6 +7,7 @@ namespace CookingBlog.Services.Mappers;
 
 public static class RecipeMapper
 {
+
     public static DbRecipe Map(this CreateRecipeRequest request)
     {
         return new DbRecipe
@@ -39,4 +40,5 @@ public static class RecipeMapper
             //Categories = request.Categories.Map(),
         };
     }
+
 }
