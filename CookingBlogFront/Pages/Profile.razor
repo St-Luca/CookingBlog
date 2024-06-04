@@ -1,7 +1,7 @@
 ﻿@page "/profile"
 @inject NavigationManager Nav
 @layout ProfileLayout
-
+@inject AuthenticationStateProvider _authenticationStateProvider
 <AuthorizeView>
     <Authorized>
 
@@ -57,18 +57,18 @@
                 <img class="polz" src="/css/img/icons8-polzovatel-100.png" alt="" title="Перейти на страницу пользователя">
             </div>
             <div class="col-md-2 col-sm-12">
-                <img class="viti" src="/css/img/icons8-vykhod-96.png" alt="" title="Выход из аккаунта">
+                <img class="viti" src="/css/img/icons8-vykhod-96.png" alt="" title="Выход из аккаунта" onclick="@OnLogout">
             </div>
             <div class="col-md-2 col-sm-12">
-                <img class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу">
+                <img class="nazad" src="/css/img/icons8-plyus-30.png" alt="" title="Закрыть страницу" onclick="@OnIndex">
             </div>
         </div>
         <div class="button_kategor">
-            <button class="izbr" type="submit" value="">Избранное</button>
+            <button class="izbr" type="submit" value="" onclick="@OnFirst">Избранное</button>
             <p></p>
-            <button class="rezepn" type="submit" value="">Мои рецепты</button>
+            <button class="rezepn" type="submit" value="" onclick="@OnFirst">Мои рецепты</button>
             <p></p>
-            <button class="cozdat" type="submit" value="">Создать рецепт</button>
+            <button class="cozdat" type="submit" value="" onclick="@OnNew">Создать рецепт</button>
         </div>
         <div class="text_polz">
             <p class="right_name">
@@ -81,4 +81,16 @@
 
 
 @code
-{}
+{
+    private async Task OnLogout()
+    {
+        await ((IdentutyAuthenticationStateProvider)_authenticationStateProvider).MarkLogouted();
+        Nav.NavigateTo("/", true);
+    }
+
+    private void OnFirst() => Nav.NavigateTo("/first/1", true);
+
+    private void OnIndex() => Nav.NavigateTo("/", true);
+
+    private void OnNew() => Nav.NavigateTo("/new", true);
+}

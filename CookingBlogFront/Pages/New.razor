@@ -82,7 +82,7 @@
 {
     private string _name;
 
-    private void OnIndex() => Nav.NavigateTo("/");
+    private void OnIndex() => Nav.NavigateTo("/", true);
 
     private async Task SendRecipeAsync()
     {
