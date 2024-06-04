@@ -1,29 +1,54 @@
 ﻿@page "/register"
+@using CookingBlogFront.Validator
+@using Blazored.FluentValidation
+@layout LoginLayout
 
 @inject AuthorizeApi _authorizeApi
 @inject NavigationManager _navManager
 
-<h3>LoginPage</h3>
-<div id="LoginPage">
-	<div id="contentlog">
+<section id="menu">
 
-		<RadzenLogin Login="@OnRegister"
-					 LoginText="Register"
-					 Register="@ToLogin"
-					 RegisterText="To Login"
-					 AllowResetPassword="false"/>
-	</div>
-</div>
+    <div id="ricepic">
+    </div>
+    <div id="entermenu">
+        <div id="uspic">
+        </div>
+<EditForm Model="@loginModel" OnValidSubmit="@OnRegister">
+            <DataAnnotationsValidator />
+    <ValidationSummary/>
+        <h1 id="enterh">Регистрация</h1><a id="regref2" href="login">Вход</a>
+        <input type="text" id="email" name="email" required minlength="4" maxlength="32" size="10" placeholder="Почта" @bind-value="loginModel.Email"/>
+           <ValidationMessage For="() => loginModel.Email" />
+        <input type="text" id="login" name="login" required minlength="4" maxlength="32" size="10" placeholder="Логин" @bind-value="loginModel.Login" />
+            <ValidationMessage For="() => loginModel.Login" />
+        <input type="password" id="password" name="password" required minlength="4" maxlength="32" size="10" placeholder="Придумайте пароль" @bind-value="loginModel.Password" />
+            <ValidationMessage For="() => loginModel.Password" />
+        <input type="password" id="password2" name="password" required minlength="4" maxlength="32" size="10" placeholder="Подтвердите пароль" @bind-value="_pass2" />
+            <input id="authbut2" type="button" value="Зарегистрироваться" onclick="@OnRegister" />
+</EditForm>
+    </div>
+    <div>
+    </div>
+</section>
 
 
 @code
 {
-	private async Task OnRegister(LoginArgs arg)
+    private string _pass2;
+    public LoginModel loginModel { get; set; } = new LoginModel();
+    string message;
+
+    void SubmitValidForm()
+    {
+        message = "";
+    }
+
+	private async Task OnRegister()
 	{
-		var success = await _authorizeApi.Register(arg.Username, arg.Password);
+		var success = await _authorizeApi.Register(loginModel.Email, loginModel.Login, loginModel.Password);
 
 		if (success)
-			_navManager.NavigateTo("/");
+			_navManager.NavigateTo("/", true);
 	}
 
 	private void ToLogin() => _navManager.NavigateTo("/login");
