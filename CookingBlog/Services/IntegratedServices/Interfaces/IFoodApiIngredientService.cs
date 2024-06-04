@@ -4,5 +4,5 @@ namespace CookingBlog.Services.IntegratedServices.Interfaces;
 
 public interface IFoodApiIngredientService
 {
-    Task<FoodApiResponsePriceIngredient?> GetIngredientsByIdAsync(int id); 
+    Task<FoodApiResponsePriceAndIngredients?> GetIngredientsByIdAsync(int id); 
 }

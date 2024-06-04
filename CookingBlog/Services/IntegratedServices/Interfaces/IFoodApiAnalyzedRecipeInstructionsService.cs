@@ -4,5 +4,5 @@ namespace CookingBlog.Services.IntegratedServices.Interfaces;
 
 public interface IFoodApiAnalyzedRecipeInstructionsService
 {
-    Task<FoodApiResponseInstructions?> GetInstructionsByIdAsync(int id);
+    Task<List<FoodApiResponseInstructions>?> GetInstructionsByIdAsync(int id);
 }
