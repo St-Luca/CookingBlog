@@ -11,7 +11,7 @@ public class DbRecipe
     [ForeignKey("UsertId")]
     public DbUser User { get; set; } = null!;
     public int Calories { get; set; }
-    public string Picture { get; set;} = string.Empty;
+    public string Image { get; set;} = string.Empty;
     public List<DbRecipeProduct> Products { get; set; } = new();
     public List<DbRecipeCategory> Categories { get; set; } = new();
     public List<DbReview> Reviews { get; set; } = new();

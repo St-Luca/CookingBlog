@@ -73,7 +73,7 @@ public class AuthService : IAuthService
         });
 
         var userToken = await userTokensService.Add(new UserToken
-        {
+{
             UserId = user.Id,
             RefreshToken = auth.RefreshToken.Token,
             RefreshExpire = auth.RefreshToken.Expires,
@@ -82,7 +82,7 @@ public class AuthService : IAuthService
         });
 
         if (userToken == null)
-        {
+    {
             throw new CookingHttpRequestException(httpStatusCode: HttpStatusCode.Unauthorized);
         }
 

@@ -59,7 +59,7 @@ public class AuthController : CookingControllerBase
         if (string.IsNullOrEmpty(refreshToken))
         {
             return Unauthorized();
-        }
+    }
 
         var result = await authService.Refresh(new RefreshRequest
         {
@@ -77,7 +77,7 @@ public class AuthController : CookingControllerBase
     {
         await passwordResetService.RestorePassword(request);
         return Ok();
-    }
+    } 
 
     [AllowAnonymous]
     [HttpPost("reset-password")]

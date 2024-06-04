@@ -187,5 +187,7 @@ void AddAllServices(IServiceCollection services)
         .AddTransient<IUserTokensService, UserTokensService>()
         .AddScoped<IUserTokensRepository, UserTokensRepository>()
         .AddSingleton<ITokenGenService, TokenGenService>()
-        .AddSingleton<IPasswordResetService, PasswordResetService>();
+        .AddSingleton<IPasswordResetService, PasswordResetService>()
+        .AddTransient<IRecipeService, RecipeService>()
+        .AddScoped<IRecipeRepository, RecipeRepository>();
 }

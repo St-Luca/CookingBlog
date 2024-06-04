@@ -1,11 +1,10 @@
-using CookingBlog.DataAccess.Models;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using CookingBlog.DataAccess.Models;
+using CookingBlog.Models.Core;
 
-namespace CookingBlog.Models.Core;
+namespace CookingBlog.Models.Requests;
 
-public class Recipe
+public class CreateRecipeRequest
 {
-    public int Id { get; set; }
     public string Name { get; set; } = null!;
     public string Description { get; set; } = null!;
     public int UserId { get; set; }
@@ -13,5 +12,4 @@ public class Recipe
     public string Image { get; set; } = string.Empty;
     public List<Product> Products { get; set; } = new();
     public List<Category> Categories { get; set; } = new();
-    public List<Review> Reviews { get; set; } = new();
 }

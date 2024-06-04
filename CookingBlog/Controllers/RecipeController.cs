@@ -1,30 +1,42 @@
-using CookingBlog.Models;
-using CookingBlog.Services.IntegratedServices.Interfaces;
+using CookingBlog.Models.Core;
+using CookingBlog.Models.Requests;
+using CookingBlog.Models.Responses;
 using CookingBlog.Services.IntegratedServices.Responses;
+using CookingBlog.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CookingBlog.Controllers;
 
 [ApiController]
-[Route("api/catalog")]
+[Route("api/recipe")]
 public class RecipeController : CookingControllerBase
 {
-    private readonly ILogger<RecipeController> _logger;
+    private readonly ILogger<RecipeController> logger;
+    private readonly IRecipeService recipeService;
 
-    private readonly IFoodApiRecipeService _apiRecipeService;
-    //private readonly ICatalogService catalogService;
-
-    public RecipeController(ILogger<RecipeController> logger, IFoodApiRecipeService apiRecipeService)//, ICatalogService catalogService)
+    public RecipeController(ILogger<RecipeController> logger, IRecipeService recipeService)
     {
-        _logger = logger;
-        _apiRecipeService = apiRecipeService;
-        // this.catalogService = catalogService;
+        this.logger = logger;
+        this.recipeService = recipeService;
     }
 
     [HttpGet]
     public async Task<FoodApiResponseCollection?> Get(int count)
     {
-        return await _apiRecipeService.GetRandomRecipesAsync(count);
-        //catalogService.GetCatalog();
+        return await recipeService.GetRandomRecipes(count);
+    }
+
+    [HttpPost("add")]
+    public ActionResult<Task> Add([FromBody] CreateRecipeRequest request)
+    {
+        recipeService.Add(request);
+
+        return Ok();
+    }
+
+    [HttpPost("user")]
+    public ActionResult<UserRecipesResponse> GetRecipesByUser()
+    {
+        return recipeService.GetRecipesByUser(UserId);
     }
 }
