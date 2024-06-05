@@ -8,7 +8,7 @@ public class DbRecipe
     public string Name { get; set; } = null!;
     public string Description { get; set; } = null!;
     public int UserId { get; set; }
-    [ForeignKey("UsertId")]
+    [ForeignKey("UserId")]
     public DbUser User { get; set; } = null!;
     public int Calories { get; set; }
     public string Image { get; set;} = string.Empty;
