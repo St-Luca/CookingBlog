@@ -1,6 +1,7 @@
 ﻿using CookingBlog.DataAccess.Models;
 using CookingBlog.Models.Core;
 using CookingBlog.Models.Requests;
+using CookingBlog.Services.IntegratedServices.Responses;
 using System.Linq;
 
 namespace CookingBlog.Services.Mappers;
@@ -41,4 +42,20 @@ public static class RecipeMapper
         };
     }
 
+    public static List<DbRecipe> Map(this List<FoodApiResponseRecipe> source, int userId = 1)
+    {
+        return source.Select(r => r.Map(userId)).ToList();
+    }
+
+    public static DbRecipe Map(this FoodApiResponseRecipe source, int userId)
+    {
+        return new DbRecipe
+        {
+            Name = source.Title,
+            Image = source.Image,
+            Description = source.Instructions,
+            UserId = userId,
+            Calories = 347
+        };
+    }
 }

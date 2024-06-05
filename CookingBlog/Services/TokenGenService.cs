@@ -13,7 +13,7 @@ namespace CookingBlog.Services;
 
 public class TokenGenService : ITokenGenService
 {
-    private const string accessTokenSecret = "dP1uH9o4KemsWOHyvYwy0UPmquikIVnS";
+    private const string accessTokenSecret = "dP1uH9o4KemsWOHyvYwy0UPmquikIVnSabcdeFGHIJKLMNOPQRSTUVXYZ1234567890";
     private const int accessTokenTTLMinutes = 1440;
     private const int refreshTokenTTLDays = 7;
 

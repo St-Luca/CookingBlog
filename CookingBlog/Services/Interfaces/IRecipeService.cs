@@ -8,6 +8,6 @@ namespace CookingBlog.Services.Interfaces;
 public interface IRecipeService
 {
     void Add(CreateRecipeRequest createRecipeRequest);
-    Task<FoodApiResponseCollection?> GetRandomRecipes(int count);
+    Task<FoodApiResponseCollection?> GetRandomRecipes(int count, int userId);
     UserRecipesResponse GetRecipesByUser(int userId);
 }

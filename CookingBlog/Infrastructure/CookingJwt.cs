@@ -28,9 +28,4 @@ public class CookingJwt
 
         return claim.ToJson().FromJson<T>();
     }
-
-    private T NullableClaimValue<T>(string claimType)
-    {
-        return user.FindFirstValue(claimType).ToJson().FromJson<T>();
-    }
 }

@@ -86,6 +86,8 @@ public class AuthService : IAuthService
             throw new CookingHttpRequestException(httpStatusCode: HttpStatusCode.Unauthorized);
         }
 
+        auth.User = user;
+
         return auth;
     }
 }
