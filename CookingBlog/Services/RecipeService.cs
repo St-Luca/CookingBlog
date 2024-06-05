@@ -29,7 +29,10 @@ public class RecipeService : IRecipeService
 
     public async Task<FoodApiResponseCollection?> GetRandomRecipes(int count)
     {
-        return await foodApiService.GetRandomRecipesAsync(count);
+        var recipes = await foodApiService.GetRandomRecipesAsync(count);
+
+
+        return recipes;
     }
 
     public UserRecipesResponse GetRecipesByUser(int userId)
