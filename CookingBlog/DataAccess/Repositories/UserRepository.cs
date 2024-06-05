@@ -29,7 +29,7 @@ public class UserRepository : IUserRepository
 
     public DbUser? GetByEmail(string email)
     {
-        return context.Users.Include(l => l.Recipes).Include(u => u.Roles).Include(u => u.Reviews).FirstOrDefault(o => o.Email.Equals("email"));
+        return context.Users.Include(l => l.Recipes).Include(u => u.Roles).Include(u => u.Reviews).FirstOrDefault(o => o.Email.Equals(email));
     }
 
     public async Task Update(DbUser user)

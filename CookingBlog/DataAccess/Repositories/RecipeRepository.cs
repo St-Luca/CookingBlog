@@ -19,6 +19,12 @@ public class RecipeRepository : IRecipeRepository
         context.SaveChanges();
     }
 
+    public void Add(List<DbRecipe> recipes)
+    {
+        context.Recipes.AddRange(recipes.ToArray());
+        context.SaveChanges();
+    }
+
     public List<DbRecipe> GetRecipesByUser(int userId)
 {
         return context.Recipes.Include(l => l.Products).Include(u => u.Categories).Include(u => u.Reviews).Where(o => o.UserId.Equals(userId)).ToList();

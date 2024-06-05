@@ -23,7 +23,7 @@ public class RecipeController : CookingControllerBase
     [HttpGet]
     public async Task<FoodApiResponseCollection?> Get(int count)
     {
-        return await recipeService.GetRandomRecipes(count);
+        return await recipeService.GetRandomRecipes(count, UserId);
     }
 
     [HttpPost("add")]

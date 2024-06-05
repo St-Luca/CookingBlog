@@ -27,10 +27,14 @@ public class RecipeService : IRecipeService
         await recipeRepository.Add(recipeRequest.Map());
     }
 
-    public async Task<FoodApiResponseCollection?> GetRandomRecipes(int count)
+    public async Task<FoodApiResponseCollection?> GetRandomRecipes(int count, int userId)
     {
         var recipes = await foodApiService.GetRandomRecipesAsync(count);
 
+        if (recipes != null)
+        {
+            recipeRepository.Add(recipes.Recipes.Map(userId));
+        }
 
         return recipes;
     }
